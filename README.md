@@ -61,6 +61,11 @@ python3 -m  http.server 8080
 UpDog a more advance webserver: 
 https://github.com/sc0tfree/updog  
 
+If we know ssh  
+```
+scp [File] [User]@[IP]:/dev/shm
+```
+
 ## Nmap
 ```
 nmap -sC -sV -oN initialScan [IP]
