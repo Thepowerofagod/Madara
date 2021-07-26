@@ -32,6 +32,9 @@ https://github.com/sleventyeleven/linuxprivchecker
 
 ## Gobuster
 https://github.com/OJ/gobuster
+```
+gobuster dir -u [http://<ip>:<port> or domain] -w <word list location>
+```
 
 ## Unix Binaries (Used to bypass security restrictions)
 https://gtfobins.github.io/
