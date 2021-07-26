@@ -26,13 +26,16 @@ Linux - Privilege Escalation:
 https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Linux%20-%20Privilege%20Escalation.md
 
 Linux Tools - Privilege Escalation:
+https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS
 https://github.com/rebootuser/LinEnum
 https://github.com/diego-treitos/linux-smart-enumeration
-https://github.com/carlospolop/PEASS-ng/tree/master/linPEAS
 https://github.com/TH3xACE/SUDO_KILLER
 https://github.com/AlessandroZ/BeRoot
 https://github.com/pentestmonkey/unix-privesc-check
 https://github.com/sleventyeleven/linuxprivchecker
+
+PEASS-ng - Privilege Escalation Awesome Scripts SUITE new generation:
+https://github.com/carlospolop/PEASS-ng
 
 Gobuster URIs (directories and files): 
 https://github.com/OJ/gobuster
