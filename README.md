@@ -71,9 +71,11 @@ scp [File] [User]@[IP]:/dev/shm
 nmap -sC -sV -oN initialScan [IP]
 ```
 
-
-
-
+## Enum4linux
+Enum4linux is a tool for enumerating information from Windows and Samba systems
+```
+ enum4linux -a [IP]
+```
 
 
 
