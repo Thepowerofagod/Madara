@@ -34,6 +34,9 @@ https://github.com/AlessandroZ/BeRoot
 https://github.com/pentestmonkey/unix-privesc-check
 https://github.com/sleventyeleven/linuxprivchecker
 
+Gobuster URIs (directories and files): 
+https://github.com/OJ/gobuster
+
 Unix binaries that can be used to bypass local security restrictions:
 https://gtfobins.github.io/
 
