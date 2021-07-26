@@ -50,3 +50,11 @@ https://siasky.net/
 
 ## HackTricks hacking trick/technique/whatever
 https://book.hacktricks.xyz/
+
+## Serving Files From Your Host
+```
+python3 -m  http.server 8080
+```
+UpDog a more advance webserver: 
+https://github.com/sc0tfree/updog  
+
