@@ -58,3 +58,14 @@ python3 -m  http.server 8080
 UpDog a more advance webserver: 
 https://github.com/sc0tfree/updog  
 
+## Nmap
+```
+nmap -sC -sV -oN initialScan [IP]
+```
+
+
+
+
+
+
+
