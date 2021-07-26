@@ -41,5 +41,7 @@ https://pentestmonkey.net/
 
 https://github.com/swisskyrepo/PayloadsAllTheThings
 
-
 https://www.wappalyzer.com/apps
+
+HackTricks hacking trick/technique/whatever:
+https://book.hacktricks.xyz/
