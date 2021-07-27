@@ -77,5 +77,17 @@ Enum4linux is a tool for enumerating information from Windows and Samba systems
  enum4linux -a [IP]
 ```
 
+## Secure Router
+- Disable WPS
+- Disable UPnp
+- Disable DMZ
+- Disable any Port Forwarding
+- Update Router’s Firmware
+- Use a complex WPA2 password
+- Change routers login password
+- Add MAC filtering
+
+
+
 
 
