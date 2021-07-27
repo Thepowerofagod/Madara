@@ -99,5 +99,5 @@ https://old.reddit.com/r/TronScript/
 https://objective-see.com/
 
 ## Shodan.io
-Search for vulnerable devices (can check your own ip)
+Search for vulnerable devices (can check your own ip)  
 https://www.shodan.io/
