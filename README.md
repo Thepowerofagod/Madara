@@ -98,5 +98,6 @@ https://old.reddit.com/r/TronScript/
 ## MacOS Security
 https://objective-see.com/
 
-
-
+## Shodan.io
+Search for vulnerable devices (can check your own ip)
+https://www.shodan.io/
