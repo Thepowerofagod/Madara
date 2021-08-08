@@ -68,7 +68,7 @@ scp [File] [User]@[IP]:/dev/shm
 
 ## Nmap
 ```
-nmap -sC -sV -oN initialScan [IP]
+nmap -sC -sV -oN initialScan [IP]/24
 ```
 
 ## Enum4linux
