@@ -19,9 +19,20 @@ Should be a last resort as kernel exploits can often be unstable and may be one 
 1. Enumerate kernel version (uname -a).
 2. Find matching exploits use Linux Exploit Suggester 2 or (Google, ExploitDB, GitHub).  
   - https://github.com/jondonas/linux-exploit-suggester-2
-    - ./linux-exploit-suggester.pl -k (karnel vertion from uname -a)
-3. Compile and run.
+```
+./linux-exploit-suggester.pl -k (karnel vertion from uname -a)
 
+or
+
+searchsploit linux kernel 2.6.32 priv esc
+searchsploit linux kernel 2.6 debian priv esc
+```
+3. Compile and run.
+```
+gcc -pthread c0w.c -o c0w
+./c0w
+/usr/bin/passwd
+```
 
 
 
