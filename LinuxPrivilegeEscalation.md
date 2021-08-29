@@ -103,5 +103,25 @@ gcc -pthread c0w.c -o c0w
     - grep PermitRootLogin /etc/ssh/sshd_config
     - chmod 600 root_key
   
-
+## Passwords & Keys
+- History Files
+  - View the contents of hidden files in the user’s home directory with filenames ending in “history
+```
+cat ~/.*history | less
+cat .bash_history
+```
+- Config Files
+  - Many services and programs use configuration (config) files to store settings.
+  - If a service needs to authenticate to something, it might store the credentials in a config file.
+  - If these config files are accessible, and the passwords they store are reused by privileged users, we may be able to use it to log in as that user. 
+```
+cat myvpn.ovpn
+cat /etc/openvpn/auth.txt
+```
+- SSH Keys
+  - SSH keys can be used instead of passwords to authenticate users using SSH.
+```
+ls -l /.ssh
+cat /.ssh/root_key
+```
 
