@@ -75,6 +75,16 @@ gcc -pthread c0w.c -o c0w
     - newroot:L9yLGxncbOROc:0:0:root:/root:/bin/bash
   - In some versions of Linux, it is possible to simply delete the “x”, which Linux interprets as the user having no password
     - root::0:0:root:/root:/bin/bash
-
-
+- Backups
+  - It is always worth exploring the file system looking for readable backup files. Some common places include user home directories, the / (root) directory, /tmp, and /var/backups.
+    - ls -la /home/user
+    - ls -la /
+    - ls -la /tmp
+    - ls -la /var/backups
+    - ls -l /.ssh
+  - If we have a ssh key
+    - confirm that root logins are even allowed via SSH:
+    - grep PermitRootLogin /etc/ssh/sshd_config
+    - chmod 600 root_key
+  
 
