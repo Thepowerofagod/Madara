@@ -3,6 +3,7 @@
 ![68747470733a2f2f7062732e7477696d672e636f6d2f6d656469612f44415a73453256555141415f62705a2e6a7067](https://user-images.githubusercontent.com/87951795/131122135-fea9fb57-8ea1-4a2a-8969-347305dc1814.jpg)
 
 Windows / Linux Local Privilege Escalation Workshop: https://github.com/sagishahar/lpeworkshop
+Linux PrivEsc cheatsheets: https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/
 
 Tools:
 - https://github.com/diego-treitos/linux-smart-enumeration
@@ -13,8 +14,23 @@ Other Tools:
 - https://github.com/AlessandroZ/BeRoot
 - http://pentestmonkey.net/tools/audit/unix-privesc-check
 
-Permissions in Linux
+Strategy:
+1. Check your user (id, whoami).
+2. Run Linux Smart Enumeration with increasing levels.
+3. Run LinEnum & other scripts as well!
+4. If your scripts are failing and you don’t know why, you can always run 
+the manual commands from this course, and other Linux PrivEsc
+cheatsheets online (e.g. https://blog.g0tmi1k.com/2011/08/basic-
+linux-privilege-escalation/)
+5. If a user accidentally types their password on the command line instead of into a password prompt, it may get recorded in a history file. cat ~/.*history 
+6. Have a quick look around for files in your user’s home directory and other common locations (e.g. /var/backup, /var/logs).
+7. Try things that don’t have many steps first, e.g. Sudo, Cron Jobs, SUID files.
+8. Have a good look at root processes, enumerate their versions and search for exploits.
+9. Check for internal ports that you might be able to forward to your attacking machine.
+10. At the end start to think about Kernel Exploits
 
+
+Permissions in Linux:
 - User accounts are configured in the /etc/passwd file.
 - User password hashes are stored in the /etc/shadow file.
 - Groups are configured in the /etc/group file.
@@ -24,7 +40,7 @@ Permissions in Linux
   - Effective: A user’s effective ID is normally equal to their real ID, however when executing a process as another user, the effective ID is set to that user’s real ID
   - Saved: saved ID is used to ensure that SUID processes can temporarily switch a user’s effective ID back to their real ID and back again without losing track of the original effective ID.
 
-Files & Directories  
+Files & Directories:  
 ![linux-file---folder-permissions](https://user-images.githubusercontent.com/87951795/131246543-ed68873f-40e0-49ba-b313-0e66c32baf52.gif)
 - Files
   - Read – when set, the file contents can be read.
@@ -67,7 +83,7 @@ gcc -pthread c0w.c -o c0w
   - Edit the /etc/shadow file and replace the original root user's password hash with the one you just generated.
 - Writable /etc/passwd 
   - if the second field of a user row in /etc/passwd contains a password hash, it takes precedent over the hash in /etc/shadow.
-    - root:x:0:0:root:/root:/bin/bash
+    - root: x:0:0:root:/root:/bin/bash
     - The “x” instructs Linux to look for the password hash in the /etc/shadow file
     - openssl passwd "password"
     - root:L9yLGxncbOROc:0:0:root:/root:/bin/bash
@@ -87,4 +103,5 @@ gcc -pthread c0w.c -o c0w
     - grep PermitRootLogin /etc/ssh/sshd_config
     - chmod 600 root_key
   
+
 
