@@ -270,26 +270,35 @@ nc -nvlp 53
 ## Sudo 
 sudo is a program which lets users run other programs with the security privileges of other users. By default, that other user will be root.
 A user generally needs to enter their password to use sudo, and they must be permitted access via rule(s) in the /etc/sudoers file.
-Rules can be used to limit users to certain programs, and forgo the password entry requirement.
-  
+Rules can be used to limit users to certain programs, and forgo the password entry requirement.  
 Run a program using sudo: 
-sudo <program>
+```
+  sudo <program>
+```
 Run a program as a specific user:
+```
 sudo –u <username> <program>
+```
 List programs a user is allowed (and disallowed) to run:
+```
 sudo -l
-  
+``` 
 “switch user” (su) 
+```
 sudo su
+```
 If for some reason the su program is not allowed
+```
 sudo -s
 sudo -i
 sudo /bin/bash
 sudo passwd 
-  
-Shell Escape Sequences
+```
+Shell Escape Sequences:  
 A list of programs with their shell escape sequences can be found here: https://gtfobins.github.io/
+```
 sudo -l
+```
 If an escape sequence exists, run the program via sudo and perform the sequence to spawn a root shell.
   
 Abusing Intended Functionality
@@ -297,6 +306,26 @@ If a program doesn’t have an escape sequence, it may still be possible to use 
 If we can read files owned by root, we may be able to extract useful information (e.g. passwords, hashes, keys).
 If we can write to files owned by root, we may be able to insert or modify information.  
 apache2 doesn’t have any known shell escape sequences, however when parsing a given config file, it will error and print any line it doesn’t understand.
+```
 sudo apache2 -f /etc/shadow
+```
+
+Environment Variables:  
+Programs run through sudo can inherit the environment variables from the user’s environment.
+In the /etc/sudoers config file, if the env_reset option is set, sudo will run programs in a new, minimal environment.
+The env_keep option can be used to keep certain environment variables from the user’s environment.
+The configured options are displayed when running sudo -l
+LD_PRELOAD:  
+LD_PRELOAD is an environment variable which can be set to the path of a shared object (.so) file.
+When set, the shared object will be loaded before any others.
+By creating a custom shared object and creating an init() function, we can execute code as soon as the object is loaded.
+LD_LIBRARY_PATH:  
+The LD_LIBRARY_PATH environment variable contains a set of directories where shared libraries are searched for first.
+The ldd command can be used to print the shared libraries used by a program: 
+```
+ldd /usr/sbin/apache2
+```
+By creating a shared library with the same name as one used by a program, and setting LD_LIBRARY_PATH to its parent directory, the program will load our shared library instead.
+  
   
   
