@@ -331,5 +331,9 @@ By creating a shared library with the same name as one used by a program, and se
 ```
 find / -type f -a \( -perm -u+s -o -perm -g+s \) -exec ls -l {} \; 2> /dev/null
 ```
-  
+SUID / SGID Executables - Known Exploits  
+SUID / SGID Executables - Shared Object Injection  
+SUID / SGID Executables - Environment Variables  
+SUID / SGID Executables - Abusing Shell Features (#1)  
+SUID / SGID Executables - Abusing Shell Features (#2)  
   
