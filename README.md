@@ -30,6 +30,14 @@ https://github.com/AlessandroZ/BeRoot
 https://github.com/pentestmonkey/unix-privesc-check  
 https://github.com/sleventyeleven/linuxprivchecker  
 
+## Port Forwarding
+In some instances, a root process may be bound to an internal port, through which it communicates.
+If for some reason, an exploit cannot run locally on the target machine, the port can be forwarded using SSH to your local machine:
+```
+ssh -R <local-port>:127.0.0.1:<target-port> <username>@<local-machine>
+```
+The exploit code can now be run on your local machine at whichever port you chose.
+
 ## msfvenom
 ```
 msfvenom -l payloads
