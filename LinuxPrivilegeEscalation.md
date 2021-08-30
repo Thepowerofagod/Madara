@@ -242,7 +242,7 @@ Execute it
 /tmp/rootbash –p
 ``` 
   
-Wildcards
+Wildcards:  
 It is possible to pass command line options (e.g. -h, --help) to commands by creating files with these names.
 GTFOBins (https://gtfobins.github.io) can help determine whether a command has command line options which will be useful for our purposes.
 ![Screenshot 2021-08-30 at 12 37 30](https://user-images.githubusercontent.com/87951795/131327094-c3266177-7a29-4e08-a6f2-dd3505ecc07d.png)
