@@ -314,7 +314,7 @@ Environment Variables:
 Programs run through sudo can inherit the environment variables from the user’s environment.
 In the /etc/sudoers config file, if the env_reset option is set, sudo will run programs in a new, minimal environment.
 The env_keep option can be used to keep certain environment variables from the user’s environment.
-The configured options are displayed when running sudo -l
+The configured options are displayed when running sudo -l  
 LD_PRELOAD:  
 LD_PRELOAD is an environment variable which can be set to the path of a shared object (.so) file.
 When set, the shared object will be loaded before any others.
@@ -327,5 +327,9 @@ ldd /usr/sbin/apache2
 ```
 By creating a shared library with the same name as one used by a program, and setting LD_LIBRARY_PATH to its parent directory, the program will load our shared library instead.
   
+ ## SUID / SGID Executables 
+```
+find / -type f -a \( -perm -u+s -o -perm -g+s \) -exec ls -l {} \; 2> /dev/null
+```
   
   
