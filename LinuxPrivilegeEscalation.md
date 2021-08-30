@@ -165,5 +165,33 @@ msfvenom -p linux/x86/exec CMD="/bin/bash -p" -f elf -o /tmp/nfs/shell.elf
   /tmp/shell.elf
   ```
   
+## Service Exploits  
+Services are simply programs that run in the background, accepting input or performing regular tasks.
+If vulnerable services are running as root, exploiting them can lead to command execution as root.
+Service exploits can be found using Searchsploit, Google, and GitHub, just like with Kernel exploits.
+
+1. Enumerate the processes running as root
+``` 
+ps aux | grep "^root"
+```
+2. Enumerating Program Versions:
+Running the program with the --version/-v command line option often shows the version number:
+``` 
+<program> --version 
+<program> -v
+``` 
+  On Debian-like distributions, dpkg can show installed programs and their version:
+``` 
+dpkg -l | grep <program>
+``` 
+  On systems that use rpm, the following achieves the same:
+ ``` 
+rpm –qa | grep <program>
+ ``` 
+3. Search for the Exploit
+  
+  
+  
+  
   
   
