@@ -7,6 +7,7 @@
 - https://docs.rapid7.com/metasploit/setting-up-a-vulnerable-target
   - https://docs.rapid7.com/metasploit/setting-up-a-vulnerable-target
   - Metasploitable2 (Linux): https://sourceforge.net/projects/metasploitable/ ( msfadmin:msfadmin )
+- https://zsecurity.org/download-custom-kali/
 
 ## Pentesting Resources
 https://github.com/swisskyrepo/PayloadsAllTheThings  
