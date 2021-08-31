@@ -3,10 +3,10 @@
 </p>
 
 ## Virtual Machines
-- https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/
+- https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/ ( Password: Passw0rd! )
 - https://docs.rapid7.com/metasploit/setting-up-a-vulnerable-target
   - https://docs.rapid7.com/metasploit/setting-up-a-vulnerable-target
-  - Metasploitable2 (Linux): https://sourceforge.net/projects/metasploitable/
+  - Metasploitable2 (Linux): https://sourceforge.net/projects/metasploitable/ ( msfadmin:msfadmin )
 
 ## Pentesting Resources
 https://github.com/swisskyrepo/PayloadsAllTheThings  
