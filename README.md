@@ -2,6 +2,12 @@
   <img src="https://user-images.githubusercontent.com/87951795/126915552-127cb983-1670-4561-957f-65f449103882.gif" alt="animated" />
 </p>
 
+## Virtual Machines
+- https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/
+- https://docs.rapid7.com/metasploit/setting-up-a-vulnerable-target
+  - https://docs.rapid7.com/metasploit/setting-up-a-vulnerable-target
+  - Metasploitable2 (Linux): https://sourceforge.net/projects/metasploitable/
+
 ## Pentesting Resources
 https://github.com/swisskyrepo/PayloadsAllTheThings  
 https://pentestmonkey.net/  
