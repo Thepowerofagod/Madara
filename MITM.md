@@ -105,9 +105,14 @@ bettercap -iface eth0 -caplet file.cap
 help dns.spoof  
 set dns.spoof.all true  
 set dns.spoof.domains zsecurity.org,*.zsecurity.org  
+dns.spoof on
 ```
 esto funcionara con todas las webs incluso si usan https pero no con hsts podemos usarlo para cambiar la pagina de login  
 inllectar codigo malicioso o proporcinar actualizaciones falsas  
+- You can use it, for example,
+  - when someone is trying to go to a login page and show them a fake page,
+  - if they're trying to go to zSecurity, for example, and then just show them another zSecurity website with some malware embedded into it.
+  - You can also use it to serve fake updates. So whenever they have a software that's gonna check for updates, we can DNS spoof that request and send them a fake update with a backdoor
 
 Injecting Javascript Code:  
 raplace links, replace images, insert html images, hook target browsers to explotation frameworks   
