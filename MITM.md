@@ -151,6 +151,11 @@ set net.sniff.output /root/capturefile.cap
 net.sniff on  
 ```
 Creating a Fake Access Point  
+https://github.com/lakinduakash/linux-wifi-hotspot
+```
+sudo add-apt-repository ppa:lakinduakash/lwh  
+sudo apt install linux-wifi-hotspot  
+```
 Necesitamos un ordenador con internet y un adaptador wifi que pueda repartir internet  
 usamos mana-toolkit que se usa para sobrepasar https capturar datos, crear puntos de haceso....  
 mana tiene 3 scripts prinsipales pero el que vamos a usar es start-nat-simple que cre AP con acceso a internet  
@@ -186,11 +191,11 @@ Para prevenir el ataque MITM:
 Usamos HTTPS evrywher plugin  
 Usamos VPN  
 
-Bettercap GUI:
-bettercap -iface eth0
-to install it 
-ui.update
-run it
-http-ui
-user:pass
+Bettercap GUI:  
+bettercap -iface eth0  
+to install it   
+ui.update  
+run it  
+http-ui  
+user:pass  
 
