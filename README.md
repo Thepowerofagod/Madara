@@ -3,6 +3,8 @@
 </p>
 
 ## Virtual Machines
+- https://www.kali.org/get-kali/
+  - https://www.kali.org/docs/virtualization/
 - https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/ ( Password: Passw0rd! )
 - https://docs.rapid7.com/metasploit/setting-up-a-vulnerable-target
   - https://docs.rapid7.com/metasploit/setting-up-a-vulnerable-target
