@@ -186,3 +186,11 @@ Para prevenir el ataque MITM:
 Usamos HTTPS evrywher plugin  
 Usamos VPN  
 
+Bettercap GUI:
+bettercap -iface eth0
+to install it 
+ui.update
+run it
+http-ui
+user:pass
+
