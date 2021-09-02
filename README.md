@@ -70,7 +70,9 @@ So first of all, you want to make sure that you're using
 the latest version of Veil
 and you'll have to experiment with the different payloads
 and different options until you get it to work.  
+
 Undetectable Backdoors Advance: https://www.youtube.com/watch?v=cgM-_42rWbM  
+Bypassing Anti-Virtus & Hacking Windows 10 Using Empire: https://zsecurity.org/bypassing-anti-virtus-hacking-windows-10-using-empire/
 
 Listening For Incoming Connections
 ```
