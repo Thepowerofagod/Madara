@@ -11,6 +11,22 @@
   - Metasploitable2 (Linux): https://sourceforge.net/projects/metasploitable/ ( msfadmin:msfadmin )
 - https://zsecurity.org/download-custom-kali/
 
+## Veil
+Kali 2020
+```
+apt update
+apt install -y mitmproxy
+apt install -y veil
+/usr/share/veil/config/setup.sh --force --silent
+apt install -y gnome-shell-extension-dashtodock
+sed -i.bak 's/# disable-user-list=true/disable-user-list=true/g' /etc/gdm3/greeter.dconf-defaults
+```
+Kali 2021
+```
+apt update
+apt install -y veil
+/usr/share/veil/config/setup.sh --force --silent
+```
 ## Pentesting Resources
 https://github.com/swisskyrepo/PayloadsAllTheThings  
 https://pentestmonkey.net/  
