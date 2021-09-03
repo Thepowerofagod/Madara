@@ -88,7 +88,11 @@ exploit
 1. We need to do MITM
 2. We need to serve fake update form evilgrade
 
-EvilGrade
+We use bettercap to intercept conection and spoff dns of the update to evilgrade server.  
+Evilgrade will give the exe like it is an update and the target will execut it.
+We get a rever shell  
+
+EvilGrade (run in port 80)
 ```
 cd /opt/evilgrade 
 ./evilgrade
