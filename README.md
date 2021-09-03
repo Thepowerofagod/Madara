@@ -92,10 +92,12 @@ EvilGrade
 ```
 cd /opt/evilgrade 
 ./evilgrade
-show modules
+or 
+sudo apt intall isr-evilgrade
 ```
 To get a list of all the programsthat we can hijack their updates
 ```
+show modules
 configure dap
 show options
 ```
