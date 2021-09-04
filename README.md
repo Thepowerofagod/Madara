@@ -11,6 +11,30 @@
   - Metasploitable2 (Linux): https://sourceforge.net/projects/metasploitable/ ( msfadmin:msfadmin )
 - https://zsecurity.org/download-custom-kali/
 
+## Metasploit - Basic Commands
+- msfupdate :  It is used to update Metasploit with the latest vulnerability exploits.
+- search [Keyword] or search name:Microsoft type:exploit
+- show options
+- show payloads
+- msfdb init
+- db_status
+- info
+- set or setg
+- get : get variable value
+- unset : deleat variable value
+- spool : seve console autput to file
+- save : save configs to use them later
+- db-nmap : use nmap inside metasploit and fill values automaticli
+  - hosts : show hosts
+  - vulns : show exploitable vuls
+  - sevices : show all discovered services on host
+- run -j : run exploit in the back
+- exploit 
+- jobs : all runin jobs
+- sessions : all open sessions
+- sessions -i [N] : interact to session number 
+-  cntrl + z : background session
+
 ## Veil
 Kali 2020
 ```
