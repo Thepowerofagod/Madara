@@ -109,6 +109,10 @@ set LPORT 8080
 exploit
 ```
 ## Fake Update
+If the updates are coming from
+a https website, then we won't be able to hijack them
+and make fake updates.
+
 1. We need to do MITM
 2. We need to serve fake update form evilgrade
 
@@ -161,7 +165,7 @@ dns.spoof on
 ```
 start the listener
 
-## Backdooring Downloads on The Fly
+## Backdooring Downloads on The Fly (works on http)
 Tool: Backdoor Factory Proxy  
 ```
 cd /opt/BDFProxy
