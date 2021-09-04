@@ -308,6 +308,10 @@ Func _DownloadFile($sURL)
     Return $sDirectory
 EndFunc   ;==>_GetURLImage
 ```
+save whit .au3 extention
+use autoit compiler to convert to EXE
+select an icon form iconarchive.com or serch img to icon on google exampl http://rw-designer.com/image-to-icon
+spoof the name add right-to-left character
 
 ## Gobuster
 https://github.com/OJ/gobuster
