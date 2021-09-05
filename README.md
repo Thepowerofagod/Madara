@@ -35,6 +35,17 @@
 - sessions -i [N] : interact to session number 
 -  cntrl + z : background session
 
+## Fake Emails
+1. Use some email spoof service but they end up in spam
+2. Use your own server
+3. Sing up for SMTP or email server 
+	-  https://www.sendinblue.com/
+```
+sendemail --help
+sendemail -xu [email] -xp [password] -s [server:port] -f "admin@google.com" -t "target@email.com" -u "Titel of the email" -m "Mesage Body dropboxlink-dl=1 " -o message-header="From: Sundar Pichai <admin@google.com>"
+```
+message-header it will show the name not the email in the delivery box
+
 ## Veil
 Kali 2020
 ```
