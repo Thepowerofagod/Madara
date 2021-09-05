@@ -37,7 +37,9 @@
 
 ## Fake Emails
 1. Use some email spoof service but they end up in spam
-2. Use your own server (hosting like dreamhosting)
+	- Google spoof email
+2. Use your own server (hosting like https://www.dreamhost.com/)
+Create send.php in the the website directory and go to the /send.php
 ```
 <?php
 
