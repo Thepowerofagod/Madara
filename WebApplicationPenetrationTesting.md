@@ -1,4 +1,4 @@
-Information Gathering
+## Information Gathering
 - IP address.
 - Domain name info.
 - Technologies used.
