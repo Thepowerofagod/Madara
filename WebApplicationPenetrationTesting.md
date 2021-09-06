@@ -7,20 +7,21 @@
 - Unlisted files, sub-domains, directories.
 
 1. Whois Lookup  - Find info about the owner of the target.
-- http://whois.domaintools.com/
+    - http://whois.domaintools.com/
 2. Netcraft Site Report - Shows technologies used on the target.
-- https://sitereport.netcraft.com/
+    - https://sitereport.netcraft.com/
 3. Wappalyzer - Identify technologies on websites 
-- https://www.wappalyzer.com/
+    - https://www.wappalyzer.com/
 4. Robtex DNS lookup - Shows comprehensive info about the target website.
-- https://www.robtex.com
+    - https://www.robtex.com
 5. Reverse IP Lookup
-- could not find any vulnerabilities in your target website,
+    - could not find any vulnerabilities in your target website,
 you can try to hack into any other website
 that is installed in the same server.
-- use Robtex DNS lookup
-- use bing.com ip:[ip]
-- use whois.domaintools.com
-
+        - use Robtex DNS lookup
+        - use bing.com ip:[ip]
+        - use whois.domaintools.com
+6. Discovering Subdomains
+    - knockpy google.com
 
 
