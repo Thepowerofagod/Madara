@@ -43,6 +43,23 @@
 - sessions -i [N] : interact to session number 
 -  cntrl + z : background session
 
+meterpreter
+- sysinfo
+- ipconfig: how you all the interfaces that are connected to the target computer.
+- ps: ist all the processes that are running on the target computer.
+	- migrate to a process that is less likely to be closed or terminated
+		- explorer.exe that's the graphical interface of windows.
+		- or migrate to spoolsv.exe recomendet in tryhackme
+		- migrate [PID]
+Now if we go on network,
+and go into TCP connections,
+you'll see that the connection here on port 8080,
+is coming from explorer.exe,
+so it's not coming from a malicious file,
+our payload or backdoor is actually running
+through the explorer.
+![Screenshot 2021-09-06 at 10 10 12](https://user-images.githubusercontent.com/87951795/132183266-8e52a127-d586-49b7-a7cd-f134cd370417.png)
+
 ## Beef
 To Hook:
 - DNS spoof request to a page containing the hook
