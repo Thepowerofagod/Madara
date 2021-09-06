@@ -14,3 +14,13 @@
 - https://www.wappalyzer.com/
 4. Robtex DNS lookup - Shows comprehensive info about the target website.
 - https://www.robtex.com
+5. Reverse IP Lookup
+- could not find any vulnerabilities in your target website,
+you can try to hack into any other website
+that is installed in the same server.
+- use Robtex DNS lookup
+- use bing.com ip:[ip]
+- use whois.domaintools.com
+
+
+
