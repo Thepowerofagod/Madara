@@ -86,7 +86,7 @@ learned before and execute it.
 - Get a screenshot
 	- screenshot
 
-Post Explotation:
+## Post Explotation:
 - Using a veil-evasion
 	- Rev_http_service
 	- Rev_tcp_service
@@ -104,6 +104,28 @@ Post Explotation:
 	- show advanced
 		- set EXE::Custom /path/to/veil/backdor
 	- exploit
+## Pivoting:
+1. (Option) All we need to do is we can upload any tool we need to use,
+for example, if you wanted to use Nmap
+or ARP spoof or dSniff,
+you can upload any of these tools,
+run them on this computer,
+which is connected to this big network,
+but it's not always a good idea to upload things
+to a hacked computer.
+2. (Option) setting up a Route
+	- Run ifconfig first
+to see what the target network looks like.
+So we can see all the interfaces connected
+to the target computer.
+And I'm gonna look for interfaces with IP addresses.
+Example 10.10.10.0
+	- use post/multi/manage/autoroute
+		- set SESSION [N of runing session]
+		- set SUBNET 10.10.10.0
+		- exploit
+	- Now I did set up a route between this network and my Kali computer
+
 
 ## Beef
 To Hook:
