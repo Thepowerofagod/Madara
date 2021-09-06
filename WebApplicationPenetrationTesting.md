@@ -4,7 +4,7 @@
 - Technologies used.
 - Other websites on the same server.
 - DNS records.
-- Unlisted files, sub-domains, directories.
+- Unlisted files, sub-domains, directories(/login, /phpinfo.php, /phpMyAdmin, /robots.txt).
 
 1. Whois Lookup  - Find info about the owner of the target.
     - http://whois.domaintools.com/
