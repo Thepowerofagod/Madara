@@ -47,11 +47,11 @@ meterpreter
 - sysinfo
 - ipconfig: how you all the interfaces that are connected to the target computer.
 - ps: ist all the processes that are running on the target computer.
+- migrate [PID]  
 	- migrate to a process that is less likely to be closed or terminated
 		- explorer.exe that's the graphical interface of windows.
 		- or migrate to spoolsv.exe recomendet in tryhackme
-		- migrate [PID]  
-
+		- 
 Now if we go on network,
 and go into TCP connections,
 you'll see that the connection here on port 8080,
