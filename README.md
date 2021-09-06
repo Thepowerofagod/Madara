@@ -51,8 +51,7 @@ meterpreter
 	- migrate to a process that is less likely to be closed or terminated
 		- explorer.exe that's the graphical interface of windows.
 		- or migrate to spoolsv.exe recomendet in tryhackme
-		- 
-Now if we go on network,
+		- Now if we go on network,
 and go into TCP connections,
 you'll see that the connection here on port 8080,
 is coming from explorer.exe,
