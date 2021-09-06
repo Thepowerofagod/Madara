@@ -86,7 +86,7 @@ learned before and execute it.
 - Get a screenshot
 	- screenshot
 
-## Post Explotation:
+## Maintaining Access (Post Explotation):
 - Using a veil-evasion
 	- Rev_http_service
 	- Rev_tcp_service
@@ -104,7 +104,7 @@ learned before and execute it.
 	- show advanced
 		- set EXE::Custom /path/to/veil/backdor
 	- exploit
-## Pivoting:
+## Pivoting (Post Explotation):
 1. (Option) All we need to do is we can upload any tool we need to use,
 for example, if you wanted to use Nmap
 or ARP spoof or dSniff,
