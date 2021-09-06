@@ -22,6 +22,19 @@ that is installed in the same server.
         - use bing.com ip:[ip]
         - use whois.domaintools.com
 6. Discovering Subdomains
-    - knockpy google.com
-
-
+    - https://github.com/guelfoweb/knock
+```
+knockpy google.com
+```
+7. Discovering Files and Directories
+- dirb
+```
+dirb [http://<ip>:<port> or domain] <word list location>
+```
+- Gobuster
+    - https://github.com/OJ/gobuster
+```
+gobuster dir -u [http://<ip>:<port> or domain] -w <word list location>
+```
+recomendet wordlist https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/big.txt
+- Look in /robots.txt
