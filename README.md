@@ -74,6 +74,18 @@ to have a connection on port 80 or 8080.
 - shell: Get a Windows prompt or Windows command line
 - background
 
+- Log any mouse or keyboard event
+	- keyscan_start
+	- keyscan_dump
+	- keyscan_stop
+	- obviously you can use other
+keylogger programs, like a portable keylogger.
+And all you have to do is just upload it
+using the upload command that we
+learned before and execute it.
+- Get a screenshot
+	- screenshot
+
 Post Explotation:
 - Using a veil-evasion
 	- Rev_http_service
