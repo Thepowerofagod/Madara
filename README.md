@@ -11,6 +11,14 @@
   - Metasploitable2 (Linux): https://sourceforge.net/projects/metasploitable/ ( msfadmin:msfadmin )
 - https://zsecurity.org/download-custom-kali/
 
+## Expose Local Services To The Internet
+1. Port Forwarding trought the router
+	- Open router and set Port Forwarding or DMZ to Kali machine
+2. Installing Kali/tools on the cloud
+3. Port forwarding using SSH
+	- https://www.youtube.com/watch?v=111ZDMKVTL4
+4. Tunneling services
+
 ## Metasploit - Basic Commands
 - msfupdate :  It is used to update Metasploit with the latest vulnerability exploits.
 - search [Keyword] or search name:Microsoft type:exploit
@@ -58,6 +66,8 @@ Add to hstshijack.cap in payloads ,*:path/beef.js
 - Commands
 	- Spyder Eye (Take screnshot)
 	- Redirect Browser
+	- Pretty Theft
+	- Fake Notification Bar
 ## Fake Emails
 1. Use some email spoof service but they end up in spam
 	- Google spoof email
