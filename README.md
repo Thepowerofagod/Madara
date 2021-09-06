@@ -67,6 +67,12 @@ because 80 and 8080 are the ports used by web servers,
 so it's very natural or very normal
 to have a connection on port 80 or 8080.  
 ![Screenshot 2021-09-06 at 10 10 12](https://user-images.githubusercontent.com/87951795/132183266-8e52a127-d586-49b7-a7cd-f134cd370417.png)
+- pwd, ls, cd, cat
+- download [file name]
+- upload [file name]
+- execute -f [file.exe]
+- shell: Get a Windows prompt or Windows command line
+
 
 ## Beef
 To Hook:
