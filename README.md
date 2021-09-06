@@ -50,7 +50,7 @@ meterpreter
 	- migrate to a process that is less likely to be closed or terminated
 		- explorer.exe that's the graphical interface of windows.
 		- or migrate to spoolsv.exe recomendet in tryhackme
-		- migrate [PID]
+		- migrate [PID]  
 Now if we go on network,
 and go into TCP connections,
 you'll see that the connection here on port 8080,
@@ -58,6 +58,14 @@ is coming from explorer.exe,
 so it's not coming from a malicious file,
 our payload or backdoor is actually running
 through the explorer.
+now if you see firefox or chrome,
+you can migrate to that process,
+and especially that you're connecting
+through port 8080, or you can use 80,
+then it's gonna look even less suspicious
+because 80 and 8080 are the ports used by web servers,
+so it's very natural or very normal
+to have a connection on port 80 or 8080.
 ![Screenshot 2021-09-06 at 10 10 12](https://user-images.githubusercontent.com/87951795/132183266-8e52a127-d586-49b7-a7cd-f134cd370417.png)
 
 ## Beef
