@@ -187,7 +187,10 @@ apt-get install firmware-atheros
 ```
 2. Enable USB3 on VirtualBox
 - Set the USB 3.0 (xHCI) Controller under USB settings on virtual box
-
+3. Reboot from console 
+```
+reboot
+```
 ## WordLists
 - ftp://ftp.openwall.com/pub/wordlists/
 - http://www.openwall.com/mirrors/
