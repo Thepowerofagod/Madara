@@ -170,3 +170,16 @@ asegurar que wps esta desabilitado
 obtenemos la ip del ordenador ifconfig wlan0 vamos a la ip 1 de la subnet para entrar en la pagina del router  
 si nos atacan con deautentificacion nos podemos conectar con el cable  
 Access Control podemos especificar que mac permitimos conectar a la red y cuales no  
+
+## WordLists
+- ftp://ftp.openwall.com/pub/wordlists/
+- http://www.openwall.com/mirrors/
+- https://github.com/danielmiessler/SecLists
+- http://www.outpost9.com/files/WordLists.html
+- http://www.vulnerabilityassessment.co.uk/passwords.htm
+- http://packetstormsecurity.org/Crackers/wordlists/
+- http://www.ai.uga.edu/ftplib/natural-language/moby/
+- http://www.cotse.com/tools/wordlists1.htm
+- http://www.cotse.com/tools/wordlists2.htm
+- http://wordlist.sourceforge.net/
+
