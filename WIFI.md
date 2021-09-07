@@ -32,6 +32,10 @@ airmon-ng check kill
 airmon-ng start wlan0
 ifconfig wlan0mon up
 ```
+para ver si a cambiado a monitor
+```
+iwconfig
+```
 Packet Sniffing Basics
 ```
 airodump-ng mon0
@@ -170,6 +174,19 @@ asegurar que wps esta desabilitado
 obtenemos la ip del ordenador ifconfig wlan0 vamos a la ip 1 de la subnet para entrar en la pagina del router  
 si nos atacan con deautentificacion nos podemos conectar con el cable  
 Access Control podemos especificar que mac permitimos conectar a la red y cuales no  
+
+## Get Alfa awus036nha to work with Kali Linux
+1. Install firmware-atheros
+```
+apt-get install firmware-atheros
+```
+Try to uninstall and reinstall the firmware if it already exists:
+```
+apt-get remove firmware-atheros
+apt-get install firmware-atheros
+```
+2. Enable USB3 on VirtualBox
+- Set the USB 3.0 (xHCI) Controller under USB settings on virtual box
 
 ## WordLists
 - ftp://ftp.openwall.com/pub/wordlists/
