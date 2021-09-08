@@ -42,12 +42,17 @@ para ver si a cambiado a monitor
 ```
 iwconfig
 ```
-Packet Sniffing Basics
+Packet Sniffing Basics:
+- for 2.4ghz
 ```
 airodump-ng mon0
-for 5ghz
+```
+- for 5ghz
+```
 airodump-ng --band a mon0
-for 5ghz and 2.4
+```
+- for 5ghz and 2.4
+```
 airodump-ng --band abg mon0
 ```
 
