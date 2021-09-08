@@ -85,6 +85,17 @@ using the upload command that we
 learned before and execute it.
 - Get a screenshot
 	- screenshot
+- Webcam and Mic
+	- webcam_list 
+	- webcam_snap 
+		- -h : to display the help banner.
+		- -i : The index number of the webcam to use.
+		- -p : The JPEG image file path. By default $HOME/[randomname].jpeg
+		- -q : The JPEG image quality, by default ’50’.
+		- -v : Automatically view the JPEG image, by default ‘true’.
+	- webcam_stream 
+	- record_mic -h
+	- run webcam -h
 
 ## Maintaining Access (Post Explotation):
 - Using a veil-evasion
