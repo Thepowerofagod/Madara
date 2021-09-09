@@ -259,6 +259,8 @@ So we'll be able to capture that name and we'll know the network name.
 no usar wep  
 usar wpa2 con contraseñas complejas  
 asegurar que wps esta desabilitado  
+use 802.11w para protejerte de deautentificaciones
+usa WPA Enterprice envez de mac filtering
 
 obtenemos la ip del ordenador ifconfig wlan0 vamos a la ip 1 de la subnet para entrar en la pagina del router  
 si nos atacan con deautentificacion nos podemos conectar con el cable  
