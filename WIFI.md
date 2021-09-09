@@ -255,6 +255,15 @@ And the operating system will automatically connect back to the network.
 When it does that, it's going to send the network name in the air and we're sniffing on that channel.
 So we'll be able to capture that name and we'll know the network name.  
 
+## Captive Portals
+- Bypassing Captive Portals
+There are a number of ways to bypass captive portals depending on the way it is 
+implemented:
+1. Change MAC address to one of a connected client.
+2. Sniff logins in monitor mode.
+3. Connect and sniff logins after running an arp spoofing attack.
+4. Create a fake AP, ask users to login.
+
 ## Conclucion:
 no usar wep  
 usar wpa2 con contraseñas complejas  
