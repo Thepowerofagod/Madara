@@ -297,11 +297,18 @@ ettercap -Tq -M arp:remote -i wlan0 ///
 ```
 4. Create a fake AP, ask users to login.
 - Clone the login page used by the captive portal.
+    - Save the page in firefox move it to folthe rename the html file to index.html and run the server apache or python3
+    - if wee have problems whit relativ paths just edit the index.html file and in start the href whit a / like href="/welcome/base.css"
+    - to do it automaticli open it in Geany copy the href="foldername go to seatch replace and replace it whit href="/foldername click replace all and In Document
+    - Make sure that the Usernam Password and Submit buton arr wrapt in Form tag if its not add it manualy: Open Geany open Find search for <input and Log in to locate all the tags to wrap add <form method="post" action="/index.html"></form>
+    - Set the Log In button to be a input if its not <input style="copy past the style" type="submit" value="Log In"></input>
+
+
 - Create a fake AP with the same/similar name.
 - Deauth users to use the fake network with the cloned page.
 - Sniff the login info!
 
-
+<form method="post" action="/index.html"></form>
 
 ## Conclucion:
 no usar wep  
