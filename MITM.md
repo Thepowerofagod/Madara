@@ -240,6 +240,40 @@ But the hacker will still be able to capture the requests.
 So they're still be able to see the URLs.
 They'll still be able to see usernames, passwords, run an dns spoofing attack downgrade https to HTTP.
 
+## mitmproxy
+- https://github.com/mitmproxy/mitmproxy
+- https://docs.brew.sh/Homebrew-on-Linux
+```
+brew install mitmproxy
+```
+- run
+```
+mitmweb
+```
+in Start the search bar
+```
+-a .js
+-m post
+-m get
+```
+intercept
+```
+/*
+-bs </body>
+```
+Real word 
+- run MITM attak to get in the midle
+- config iptables to redirect to MITMPROXY
+```
+iptables -t nat -A PREROUTING -p tcp --destination-port 80 -j REDIRECT --to-port 8080
+```
+
+2 Main operation modes:
+- Explicit - user connects directly to the proxy.
+- Transparent - data is redirected to the proxy
+
+For Testing
+Firefox > Preferences > Network > add manual proxy to ip 127.0.0.1 port 8080
 
 ## Detectar Arp Poisoning:  
 comprovamos que los mac de las ips son unicos  
