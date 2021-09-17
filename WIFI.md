@@ -268,6 +268,35 @@ hashcat64.exe --help
 hashcat64.exe -I
 hashcat64.exe -m 2500 -d (GPU number) (file).hccapx wordlist.txt
 ```
+
+## WPA Enterprise
+The only solution is to run an evil twin attack, 2 ideas:
+1. Using the traditional method, just use a page that looks like login box.
+- Drawbacks:
+    - Has to be an open network when users know their network use WPA/WPA2.
+    - They have to enter password in a web page.
+- Advantages:
+    - Password is sent in plain text.
+    - No need to decrypt it.
+2. Create a fake AP that uses WPA enterprise
+- Drawbacks:
+    - Captured password will be encrypted.
+- Advantages:
+    - Looks and behaves exactly like a  real WPA-Enterprise network.
+
+2 metod execution
+```
+sudo apt install hostapd-wpe
+leafpad /etc/hostapd-wpe/hostapd-wpe.conf
+```
+hostapd-wpe.conf
+```
+interface=(interface)
+ssid=(name of fake network)
+```
+
+
+
 ## Evil Twin Attack
 dea:
 1. Start a fake AP with same name as target network.
