@@ -370,6 +370,7 @@ comprovamos que los mac de las ips son unicos
 ```
 arp -a  
 ```
+arp table monitoring tools
 podemos usar la heramienta XArp  
 
 Detectar actividades sospechosas en la red con Wireshark:  
