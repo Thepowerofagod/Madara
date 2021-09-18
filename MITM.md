@@ -243,6 +243,14 @@ They'll still be able to see usernames, passwords, run an dns spoofing attack do
 ## mitmproxy
 - https://github.com/mitmproxy/mitmproxy
 - https://docs.brew.sh/Homebrew-on-Linux
+
+2 Main operation modes:
+- Explicit - user connects directly to the proxy.
+- Transparent - data is redirected to the proxy
+
+For Testing
+Firefox > Preferences > Network > add manual proxy to ip 127.0.0.1 port 8080
+
 ```
 brew install mitmproxy
 ```
@@ -343,13 +351,12 @@ run it
 ```
 mirmdump -s mitmproxy_script.py -transparent
 ```
+SSLstrip
+- https://github.com/mitmproxy/mitmproxy/tree/v2.0.2/examples/complex
+```
+mirmdump -s sslstrip.py -transparent
+```
 
-2 Main operation modes:
-- Explicit - user connects directly to the proxy.
-- Transparent - data is redirected to the proxy
-
-For Testing
-Firefox > Preferences > Network > add manual proxy to ip 127.0.0.1 port 8080
 
 ## Detectar Arp Poisoning:  
 comprovamos que los mac de las ips son unicos  
