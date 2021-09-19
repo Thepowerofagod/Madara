@@ -388,11 +388,40 @@ Idea:
 - Remove all arguments, add them one by one to identify the one triggering AV programs
 - Remove / modify detectable code.
 ```
+powershell -w 1 -C "value.toString()'AKJHDSFIUOSAEIUHEUIFEIUOFDSOIUFSOIEOIFSOIUEFOIOEIOJEFJOOJIE'"
 ```
-
+Remove all exept the shell code (this is the part of the code that will do the magic)
+```
+AKJHDSFIUOSAEIUHEUIFEIUOFDSOIUFSOIEOIFSOIUEFOIOEIOJEFJOOJIE
+```
+Upload this .bat to https://nodistribute.com/ to see if its geting detected
+If the shellcode is getting detected, then you need to play around with the parameters, with the ports,
+with the stager that you're using.
+So until you reach a shell code that's not detected  
+then start to play aroud and uploading it to nodistribute to se what is trigering the antivirus
+```
+toString()'AKJHDSFIUOSAEIUHEUIFEIUOFDSOIUFSOIEOIFSOIUEFOIOEIOJEFJOOJIE'"
 ```
 ```
-
+-C "value.toString()'AKJHDSFIUOSAEIUHEUIFEIUOFDSOIUFSOIEOIFSOIUEFOIOEIOJEFJOOJIE'"
+```
+```
+powershell -w 1 -C "value.toString()'AKJHDSFIUOSAEIUHEUIFEIUOFDSOIUFSOIEOIFSOIUEFOIOEIOJEFJOOJIE'"
+```
+So literally, if you actually upload this code right here to not distribute, it's going to bypass
+everything.
+And if you add the forward slash B to it, it's going to get detected by two antivirus programs like
+we've seen before.
+```
+powershell -w /b 1 -C "value.toString()'AKJHDSFIUOSAEIUHEUIFEIUOFDSOIUFSOIEOIFSOIUEFOIOEIOJEFJOOJIE'"
+```
+So you can literally just remove this B or add another argument  like /min here and what this is going to do,
+it's going to change the source code of the file.
+It's going to change the signature of the file, and it's actually going to bypass all antivirus programs
+by literally just adding one argument that doesn't really affect the whole code.
+```
+powershell -w /min /b 1 -C "value.toString()'AKJHDSFIUOSAEIUHEUIFEIUOFDSOIUFSOIEOIFSOIUEFOIOEIOJEFJOOJIE'"
+```
 ## Trojan Factory
 - https://github.com/z00z/TrojanFactory
 Installation:
