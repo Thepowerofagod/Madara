@@ -379,13 +379,19 @@ interact xxxxx
 ```
 
 ## Modifying Backdoor Source To Bypass All Anti-virus Programs
-for the .bat backdors generated whit fatrat and empire (Dos and powershell code)
+for the .bat backdors generated whit fatrat and empire (Dos and powershell code)  
+Now we can't open the backdoor generated with VEIL use in a text editor because they'll generate EXE backdoors.  
+And if we open them using a text editor, we'll just get gibberish.  
 Idea:
 - Open backdoor with text editor.
 - Make sure shellcode is not detect, if it then change payload settings or use a different one.
 - Remove all arguments, add them one by one to identify the one triggering AV programs
 - Remove / modify detectable code.
+```
+```
 
+```
+```
 
 ## Trojan Factory
 - https://github.com/z00z/TrojanFactory
