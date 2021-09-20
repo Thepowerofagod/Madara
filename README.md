@@ -5,6 +5,16 @@
 ## Virtual Machines
 - https://www.kali.org/get-kali/
   - https://www.kali.org/docs/virtualization/
+```
+Change password
+reboot
+in boot screen pres e
+edit line Linux
+ro = rw
+quite splash = init=/bin/bash
+passwd root
+exec /sbin/init
+```
 - https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/ ( Password: Passw0rd! )
 - https://docs.rapid7.com/metasploit/setting-up-a-vulnerable-target
   - https://docs.rapid7.com/metasploit/setting-up-a-vulnerable-target
