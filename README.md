@@ -480,7 +480,7 @@ send it in zip or firefox will remove the right-to-left character
 
 ## Backdooring Any File (Method 2)
 Download and execute anything and any number of files.  
-AutoIt Scripting: (AutoIt is not installed in kali but it install automaticli when install veil)
+AutoIt Scripting: (AutoIt is not installed in kali but it install automaticli when install veil)  
 ```
 #include <StaticConstants.au3>
 #include <WindowsConstants.au3>
