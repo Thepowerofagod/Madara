@@ -21,9 +21,11 @@ exec /sbin/init
   - Metasploitable2 (Linux): https://sourceforge.net/projects/metasploitable/ ( msfadmin:msfadmin )
 - https://zsecurity.org/download-custom-kali/
 
-## Expose Local Services To The Internet
+## Attacks Outside The Local Network. Expose Local Services To The Internet
 1. Port Forwarding trought the router
 	- Open router and set Port Forwarding or DMZ to Kali machine
+	- set the multihandler to the local ip and the forwardet port
+	- run route -n to see the router ip
 2. Installing Kali/tools on the cloud
 3. Port forwarding using SSH
 	- https://www.youtube.com/watch?v=111ZDMKVTL4
