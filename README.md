@@ -189,11 +189,39 @@ Put All Data
 2) Copy the entire folder
 Url of the original web
 ```
-Go to a URL shorter like https://bit.do/ to modificate the raw IP
+Go to a URL shorter like https://bit.do/ or https://tinyurl.com/app/ to modificate the raw IP
 add the <a></a> to the email
 ```
 <a href="http://bit.do/amazon.com">amazon.com</a>
 ```
+- URL Manipulation
+```
+https://support.mozilla.org-blog@tinyurl.com/mejordeporte
+```
+- use https://splitline.github.io/domain-obfuscator/
+```
+https://support.mozilla.org-blog@ⓣ㏌ʸⓤℛˡ.Ⅽⓞᴹ／ₘⅇⱼₒᵣⓓⓔＰℴℜᵗＥ
+```
+
+## Google Analytics Social Engineering 
+So like I said Google Analytics is used to track the people that visit the website or the YouTube channel
+and know what they're interested in so what this payload is gonna do it's going to generate a lot of traffic
+that's going to visit this page, which is managed by your target
+and it's gonna show that the traffic is coming from 10.20.14.213,
+so it's coming from the link that you want your target to go to.
+Now once the target sees that they're getting a lot of traffic from a certain website.
+They'll be tempted to go to that website and once they click on it you'll gain access to them
+
+```
+sudo setoolkit
+11) Third Party Modules
+2) Goolge analytics attack
+manual
+UA-XXXXXX
+Fill data
+```
+Now in a real life scenario you can upload the BeEF page to a free hosting and then use a domain name,
+so that in the source you'll actually see a nice normal domain like zaid.com, for example
 
 ## Fake Emails
 1. Use some email spoof service but they end up in spam
