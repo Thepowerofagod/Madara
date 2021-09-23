@@ -162,6 +162,7 @@ Example 10.10.10.0
 		- set SUBNET 10.10.10.0
 		- exploit
 	- Now I did set up a route between this network and my Kali computer
+	- You can use exploits as normal but pointing to this IP
 
 
 ## Beef
