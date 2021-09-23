@@ -65,6 +65,7 @@ bash basic_bash_shell
 - exploit 
 - jobs : all runin jobs
 - sessions : all open sessions
+- sessions -l: all open sessions
 - sessions -i [N] : interact to session number 
 -  cntrl + z : background session
 
