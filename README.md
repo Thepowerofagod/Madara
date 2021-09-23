@@ -31,6 +31,19 @@ exec /sbin/init
 	- https://www.youtube.com/watch?v=111ZDMKVTL4
 4. Tunneling services
 
+## Upgrading Basic Shell Access To A Meterpreter/Empire Access
+usful linux comands
+```
+uname -a
+whoami
+ifconfig
+```
+use a wget linux or curl mac to download the shell to the /tmp/ directory  
+run it using  
+```
+bash basic_bash_shell
+```
+
 ## Metasploit - Basic Commands
 - msfupdate :  It is used to update Metasploit with the latest vulnerability exploits.
 - search [Keyword] or search name:Microsoft type:exploit
