@@ -176,6 +176,25 @@ Add to hstshijack.cap in payloads ,*:path/beef.js
 	- Pretty Theft
 	- Fake Notification Bar
 
+## Creating A Replica Of Any Website / Login Page
+- https://addons.mozilla.org/en-GB/firefox/addon/webscrapbook/
+- Capture tab (source)
+```
+sudo setoolkit
+1) Social-Engineering Attacks
+2) Website Atack Vectors
+3) Credential Harvester Attack Method
+3) Custom Import
+Put All Data
+2) Copy the entire folder
+Url of the original web
+```
+Go to a URL shorter like https://bit.do/ to modificate the raw IP
+add the <a></a> to the email
+```
+<a href="http://bit.do/amazon.com">amazon.com</a>
+```
+
 ## Fake Emails
 1. Use some email spoof service but they end up in spam
 	- Google spoof email
